@@ -51,7 +51,6 @@ export default function Login() {
       } else {
         const responseData: Response = await response.json();
         localStorage.setItem('authToken', responseData.token);
-        localStorage.setItem('userId', responseData.userId);
         navigate('/dashboard');
       }
     } catch (err) {

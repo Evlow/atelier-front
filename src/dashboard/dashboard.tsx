@@ -63,7 +63,7 @@ export default function Dashboard() {
               style={{ marginTop: "20px" }}
               onClick={() => {
                 localStorage.removeItem("authToken");
-                navigate("/login");
+                navigate("/connexion");
               }}
             >
               Se déconnecter
