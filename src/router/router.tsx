@@ -4,9 +4,8 @@ import Register from "../register/register";
 import Login from "../login/login";
 import Dashboard from "../dashboard/dashboard";
 import Aside from "../admin/aside/aside";
+import RequireAuth from "./requireAuth";  
 import NavBarAdmin from "../admin/navBarAdmin/navBarAdmin";
-import RequireAuth from "./requireAuth";
-
 export const Router = createBrowserRouter([
   {
     path: "/",
