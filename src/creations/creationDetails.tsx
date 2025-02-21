@@ -10,8 +10,9 @@ export default function CreationDetails() {
   const { id } = useParams<{ id: string }>();
   const [mainMedia, setMainMedia] = useState<string>("");
   const [creation, setCreation] = useState<Creation | undefined>();
+  const [filteredPictureUrls, setFilteredPictureUrls] = useState<string[]>([]);
+  const [filteredVideoUrls, setFilteredVideoUrls] = useState<string[]>([]);
 
-  // Fetch creation data
   useEffect(() => {
     if (!id) {
       console.error("ID is missing");
@@ -22,7 +23,16 @@ export default function CreationDetails() {
         const response = await axios.get(
           `http://preprodback.karim-portfolio.xyz/api/Creation/GetCreation/${parseInt(id)}`
         );
-        setCreation(response.data);
+        const data = response.data;
+
+        setCreation(data);
+
+        // Définir l'image principale en priorité
+        if (data.pictureUrls?.length > 0) {
+          setMainMedia(data.pictureUrls[0]);
+        } else if (data.videoUrls?.length > 0) {
+          setMainMedia(data.videoUrls[0]);
+        }
       } catch (error) {
         console.error("Erreur lors de la récupération de la création:", error);
       }
@@ -31,18 +41,13 @@ export default function CreationDetails() {
     fetchCreations();
   }, [id]);
 
-  // Set main image/video once creation data is available
+  // Met à jour la liste des médias additionnels quand mainMedia change
   useEffect(() => {
-    if (creation?.pictureUrls && creation.pictureUrls.length > 0) {
-      setMainMedia(creation.pictureUrls[0]);
-    } else if (creation?.videoUrls && creation.videoUrls.length > 0) {
-      setMainMedia(creation.videoUrls[0]);
+    if (creation) {
+      setFilteredPictureUrls(creation.pictureUrls?.filter(url => url !== mainMedia) || []);
+      setFilteredVideoUrls(creation.videoUrls?.filter(url => url !== mainMedia) || []);
     }
-  }, [creation]);
-
-  // Filter out the current main media
-  const filteredPictureUrls = creation?.pictureUrls?.filter(url => url !== mainMedia);
-  const filteredVideoUrls = creation?.videoUrls?.filter(url => url !== mainMedia);
+  }, [mainMedia, creation]);
 
   return (
     <>
@@ -104,11 +109,11 @@ export default function CreationDetails() {
               display: "flex",
               gap: 2,
               marginTop: 2,
-              overflowX: "auto", // Allow horizontal scrolling if content overflows
+              overflowX: "auto",
             }}
           >
             {/* Additional Images */}
-            {filteredPictureUrls?.map((url, index) => (
+            {filteredPictureUrls.map((url, index) => (
               <Box
                 key={index}
                 component="img"
@@ -120,14 +125,14 @@ export default function CreationDetails() {
                   objectFit: "cover",
                   borderRadius: 2,
                   cursor: "pointer",
-                  aspectRatio: "1 / 1", // Keeps images square for consistency
+                  aspectRatio: "1 / 1",
                 }}
-                onClick={() => setMainMedia(url)} // Click to set this image as main image
+                onClick={() => setMainMedia(url)}
               />
             ))}
 
             {/* Additional Videos */}
-            {filteredVideoUrls?.map((url, index) => (
+            {filteredVideoUrls.map((url, index) => (
               <Box key={index}>
                 <video
                   src={url}
@@ -136,7 +141,7 @@ export default function CreationDetails() {
                     objectFit: "cover",
                     borderRadius: 2,
                   }}
-                  onClick={() => setMainMedia(url)} // Click to set this video as main media
+                  onClick={() => setMainMedia(url)}
                 />
               </Box>
             ))}
