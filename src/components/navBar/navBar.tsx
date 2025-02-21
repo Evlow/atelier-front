@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { SiTiktok } from "react-icons/si";
 import { NavLink } from "react-router-dom";
 import Divider from '@mui/material/Divider';
-import "navBar.css";
+import "./navBar.css";
 
 // Liste des éléments du menu de navigation
 const nav = [
