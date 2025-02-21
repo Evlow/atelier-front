@@ -6,6 +6,7 @@ import Dashboard from "../dashboard/dashboard";
 import Aside from "../admin/aside/aside";
 import RequireAuth from "./requireAuth";  
 import AdminNav from "../admin/adminNav/adminNav";
+import CreationDetails from "../creations/creationDetails";
 export const Router = createBrowserRouter([
   {
     path: "/",
@@ -14,6 +15,7 @@ export const Router = createBrowserRouter([
       { path: "inscription", element: <Register /> },
       { path: "dashboard", element: <Dashboard /> },
       { path: "connexion", element: <Login /> },
+      { path: "creation/:id", element: <CreationDetails /> },
     ],
   },
   {
