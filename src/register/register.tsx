@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
@@ -6,13 +7,11 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Paper } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
-import api from "../axios/configAxios";
-import axios from "axios";
 
 export default function Register() {
   const navigate = useNavigate();
   
-  // États des champs
+  // States pour les champs et erreurs
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,22 +32,20 @@ export default function Register() {
     }
 
     try {
-      // Appel à l'API avec notre instance Axios
-      const response = await api.post("Account/Register/register", {
-        userName,
-        email,
-        password,
-      });
-
+      const response = await axios.post(
+        "http://http://preprodback.karim-portfolio.xyz/api/Account/Register/register",
+        { userName, email, password },
+        { headers: { "Content-Type": "application/json" } }
+      );
       console.log("Réponse API :", response.data);
-      navigate("/connexion"); 
+      navigate("/connexion"); // Redirection après succès
     } catch (error: unknown) {
-      if (axios.isAxiosError(error) && error.response?.data) {
-        setApiError(error.response.data.message || "Une erreur est survenue.");
+      if (axios.isAxiosError(error)) {
+        console.error("Erreur API :", error.response?.data);
       } else {
-        setApiError("Une erreur est survenue. Veuillez réessayer.");
+        console.error("Erreur inconnue :", error);
       }
-      console.error("Erreur API :", error);
+      setApiError("Une erreur est survenue. Veuillez réessayer.");
     } finally {
       setIsSubmitting(false);
     }
@@ -57,7 +54,7 @@ export default function Register() {
   return (
     <Container component={Paper} maxWidth="sm" sx={{ display: "flex", flexDirection: "column", alignItems: "center", p: 4 }}>
       <Typography component="h1" variant="h5">
-        Inscription test
+        Inscription
       </Typography>
       {apiError && <Typography color="error">{apiError}</Typography>}
 

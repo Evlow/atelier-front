@@ -37,8 +37,7 @@ export default function Login() {
     setError('');
 
     try {
-      const baseURL = process.env.REACT_APP_API_BASE_URL;
-      const response = await fetch(`${baseURL}Account/Login/login`, {
+      const response = await fetch('http://preprodback.karim-portfolio.xyz/api/Account/Login/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,6 +51,7 @@ export default function Login() {
       } else {
         const responseData: Response = await response.json();
         localStorage.setItem('authToken', responseData.token);
+        localStorage.setItem('userId', responseData.userId);
         navigate('/dashboard');
       }
     } catch (err) {
