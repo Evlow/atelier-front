@@ -37,7 +37,8 @@ export default function Login() {
     setError('');
 
     try {
-      const response = await fetch('http://preprodback.karim-portfolio.xyz/api/Account/Login/login', {
+      const baseURL = process.env.REACT_APP_API_BASE_URL;
+      const response = await fetch(`${baseURL}Account/Login/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

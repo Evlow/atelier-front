@@ -23,7 +23,8 @@ export default function Dashboard() {
       }
 
       try {
-        const response = await fetch("http://preprodback.karim-portfolio.xyz/api/Account/GetCurrentUser/currentUser", {
+        const baseURL = process.env.REACT_APP_API_BASE_URL;
+        const response = await fetch(`${baseURL}Account/GetCurrentUser/currentUser`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

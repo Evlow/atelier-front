@@ -32,8 +32,9 @@ export default function Register() {
     }
 
     try {
-      const response = await axios.post(
-        "http://preprodback.karim-portfolio.xyz/api/Account/Register/register",
+      const baseURL = process.env.REACT_APP_API_BASE_URL;
+      const response = await axios.post(  
+        `${baseURL}Account/Register/register`,
         { userName, email, password },
         { headers: { "Content-Type": "application/json" } }
       );
