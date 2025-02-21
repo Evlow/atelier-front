@@ -3,8 +3,8 @@ import App from "../App";
 import Register from "../register/register";
 import Login from "../login/login";
 import Dashboard from "../dashboard/dashboard";
-import NavBarAdmin from "../admin/navBarAdmin/navBarAdmin";
 import Aside from "../admin/aside/aside";
+import NavBarAdmin from "../admin/navBarAdmin/navBarAdmin";
 import RequireAuth from "./requireAuth";
 
 export const Router = createBrowserRouter([
