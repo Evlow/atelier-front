@@ -3,10 +3,10 @@ import { Container, Typography, CircularProgress, Card, Button, CardActionArea, 
 import { useNavigate } from "react-router-dom";
 import CreationForm from "../creations/creationForm";
 import NavBarAdmin from "../admin/navBarAdmin/NavBarAdmin";
-import { Creation } from "../models/Creations";
 import AddIcon from "@mui/icons-material/Add";
 import { Link as RouterLink } from "react-router-dom";
 import { User } from "../models/user";
+import { Creation } from "../models/creation";
 
 
 export default function Dashboard() {

@@ -13,7 +13,7 @@ import { LoadingButton } from "@mui/lab";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Creation } from "../models/Creations";
+import { Creation } from "../models/creation";
 
 interface CreationForm {
   name: string;
