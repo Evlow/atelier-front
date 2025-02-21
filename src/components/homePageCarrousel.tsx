@@ -53,7 +53,7 @@ export default function HomePageCarrousel() {
             return (
               <Link
                 key={creation.id}
-                to={`/creations/${creation.id}`}
+                to={`/creation/${creation.id}`}
                 style={{ textDecoration: "none", flexShrink: 0 }}
               >
                 <Card className="carousel-card">
