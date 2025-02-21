@@ -1,11 +1,10 @@
 
 import { useEffect, useState } from "react";
-import anima from "../../Assets/anima.png";
-import arduino from "../../Assets/arduino.jpg";
-import video from "../../Assets/video.mp4";
-
-import Arabesque1 from "../../Assets/Arabesque1.svg";
-import Arabesque2 from "../../Assets/Arabesque2.svg";
+import anima from "../../assets/anima.png";
+import arduino from "../../assets/arduino.jpg";
+import video from "../../assets/video.mp4";
+import Arabesque1 from "../../assets/Arabesque1.svg";
+import Arabesque2 from "../../assets/Arabesque2.svg";
 import { Box, Typography, Stack } from "@mui/material";
 import { Creation } from "../models/creation";
 import NavBar from "../components/navBar/navBar";
