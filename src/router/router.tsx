@@ -5,7 +5,7 @@ import Login from "../login/login";
 import Dashboard from "../dashboard/dashboard";
 import Aside from "../admin/aside/aside";
 import RequireAuth from "./requireAuth";  
-import NavBarAdmin from "../admin/navBarAdmin/navBarAdmin";
+import AdminNav from "../admin/adminNav/adminNav";
 export const Router = createBrowserRouter([
   {
     path: "/",
@@ -20,7 +20,7 @@ export const Router = createBrowserRouter([
     element: <RequireAuth roles={["Admin"]} />,
     children: [
       { path: "dashboard", element: <Dashboard /> },
-      { path: "navBarAdmin", element: <NavBarAdmin /> },
+      { path: "navBarAdmin", element: <AdminNav /> },
       { path: "admin", element: <Aside /> },
     ],
   },

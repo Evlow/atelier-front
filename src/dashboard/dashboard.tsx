@@ -20,7 +20,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { Link as RouterLink } from "react-router-dom";
 import { User } from "../models/user";
 import { Creation } from "../models/creation";
-import NavBarAdmin from "../admin/navBarAdmin/navBarAdmin";
+import AdminNav from "../admin/adminNav/adminNav";
 
 export default function Dashboard() {
   const [user, setUser] = useState<User | null>(null);
@@ -158,7 +158,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <NavBarAdmin />
+      <AdminNav />
       <Box>
         <Typography
           variant="h3"
