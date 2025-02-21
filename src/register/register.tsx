@@ -33,7 +33,7 @@ export default function Register() {
 
     try {
       const response = await axios.post(
-        "http://http://preprodback.karim-portfolio.xyz/api/Account/Register/register",
+        "http://preprodback.karim-portfolio.xyz/api/Account/Register/register",
         { userName, email, password },
         { headers: { "Content-Type": "application/json" } }
       );
