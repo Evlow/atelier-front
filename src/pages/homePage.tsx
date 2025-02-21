@@ -11,13 +11,13 @@ import {
   ListItem,
 } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import Home from "../../Assets/home.jpg";
-import Arabesque1 from "../../Assets/Arabesque1.svg";
-import Arabesque2 from "../../Assets/Arabesque2.svg";
-import Engrenage from "../../Assets/engrenage.svg";
-import Engrenage1 from "../../Assets/engrenage1.svg";
-import LogoInsta from "../../Assets/logo-insta.png";
-import creation from "../../Assets/creation.jpg";
+import Home from "../assets/home.jpg";
+import Arabesque1 from "../assets/Arabesque1.svg";
+import Arabesque2 from "../assets/Arabesque2.svg";
+import Engrenage from "../assets/engrenage.svg";
+import Engrenage1 from "../assets/engrenage1.svg";
+import LogoInsta from "../assets/logo-insta.png";
+import creation from  "../assets/creation.jpg";
 import { Link } from "react-router-dom"; 
 import NavBar from "../components/navBar/navBar";
 import Footer from "../components/footer/footer";
@@ -29,17 +29,17 @@ export default function HomePage() {
     {
       name: "facebook",
       url: "https://www.facebook.com/latelierdonirium",
-      icon: process.env.PUBLIC_URL + "/Images/facebook.svg",
+      icon: process.env.PUBLIC_URL + "src/assets/facebook.svg",
     },
     {
       name: "instagram",
       url: "https://www.instagram.com/latelierdonirium?igsh=MWF3Z2dyNzR5N2l0Yw==",
-      icon: process.env.PUBLIC_URL + "/Images/instagram.svg",
+      icon: process.env.PUBLIC_URL + "src/assets/instagram.svg",
     },
     {
       name: "tikTok",
       url: "https://www.tiktok.com/@latelierdonirium?_t=8pf3S8fZJab&_r=1",
-      icon: process.env.PUBLIC_URL + "/Images/tiktok.svg",
+      icon: process.env.PUBLIC_URL + "src/assets/tiktok.svg",
     },
   ];
 
