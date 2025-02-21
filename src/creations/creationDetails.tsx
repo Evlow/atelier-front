@@ -18,7 +18,7 @@ export default function CreationDetails() {
           );
           setCreation(response.data);
         } catch (error) {
-          console.error("Error fetching creations:", error);
+          console.error("Erreur lors de la récupération de la création:", error);
         }
       };
   
