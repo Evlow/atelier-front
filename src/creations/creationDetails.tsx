@@ -7,14 +7,21 @@ import Footer from "../components/footer/footer";
 import axios from "axios";
 
 export default function CreationDetails() {
-    const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>();
     const [mainMedia, setMainMedia] = useState<string>("");
     const [creation, setCreation] = useState<Creation | undefined>();
+
+    
     useEffect(() => {
+
+      if (!id) {
+        console.error("ID is missing");
+        return;
+      }
       const fetchCreations = async () => {
         try {
           const response = await axios.get(
-            `http://preprodback.karim-portfolio.xyz/api/Creation/CreationId/${parseInt(id!)}`
+           `http://preprodback.karim-portfolio.xyz/api/Creation/GetCreation/${parseInt(id)}`
           );
           setCreation(response.data);
         } catch (error) {
