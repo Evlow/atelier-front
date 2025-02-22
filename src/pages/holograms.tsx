@@ -9,7 +9,7 @@ export default function Holograms() {
   const [creations, setCreations] = useState<Creation[]>([]);
 
   useEffect(() => {
-    const categoryId = 4;   
+    const categoryId = 3;   
     fetch(`http://preprodback.karim-portfolio.xyz/api/Creation/GetCreationsByCategoryId/${categoryId}`)
       .then((response) => {
         if (!response.ok) {

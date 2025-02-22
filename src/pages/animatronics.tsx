@@ -15,7 +15,7 @@ export default function Animatronics() {
   const [creations, setCreations] = useState<Creation[]>([]);
 
   useEffect(() => {
-    const categoryId = 3;   
+    const categoryId = 1;   
     fetch(`http://preprodback.karim-portfolio.xyz/api/Creation/GetCreationsByCategoryId/${categoryId}`)
       .then((response) => {
         if (!response.ok) {

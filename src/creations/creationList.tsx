@@ -24,7 +24,7 @@ export default function CreationList({ creations }: Props) {
           md={4}  // Trois cartes par ligne sur les écrans encore plus grands
           lg={3}  // Quatre cartes par ligne sur les très grands écrans
         >
-<Link to={`/${creation.name}/${creation.id}`} style={{ textDecoration: "none" }}>
+<Link to={`${creation.name}/${creation.id}`} style={{ textDecoration: "none" }}>
 <CreationCard creation={creation} />
           </Link>
         </Grid>

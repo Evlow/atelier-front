@@ -9,7 +9,7 @@ export default function CreationWorkshops() {
     const [creations, setCreations] = useState<Creation[]>([]);
   
     useEffect(() => {
-      const categoryId = 1;   
+      const categoryId = 3;   
       fetch(`http://preprodback.karim-portfolio.xyz/api/Creation/GetCreationsByCategoryId/${categoryId}`)
         .then((response) => {
           if (!response.ok) {
