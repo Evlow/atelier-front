@@ -22,6 +22,9 @@ import { Link } from "react-router-dom";
 import NavBar from "../components/navBar/navBar";
 import Footer from "../components/footer/footer";
 import HomePageCarrousel from "../components/homePageCarrousel";
+import facebook from "../../assets/facebook.svg";
+import instagram  from "../../assets/instagram.svg";
+import tiktok from "../../assets/tiktok.svg";
 
 export default function HomePage() {
 
@@ -29,17 +32,17 @@ export default function HomePage() {
     {
       name: "facebook",
       url: "https://www.facebook.com/latelierdonirium",
-      icon: process.env.PUBLIC_URL + "/images/facebook.svg",
+      icon: facebook,
     },
     {
       name: "instagram",
       url: "https://www.instagram.com/latelierdonirium?igsh=MWF3Z2dyNzR5N2l0Yw==",
-      icon: process.env.PUBLIC_URL + "/images/instagram.svg",
+      icon: instagram,
     },
     {
       name: "tikTok",
       url: "https://www.tiktok.com/@latelierdonirium?_t=8pf3S8fZJab&_r=1",
-      icon: process.env.PUBLIC_URL + "/images/tiktok.svg",
+      icon:  tiktok,
     },
   ];
 
