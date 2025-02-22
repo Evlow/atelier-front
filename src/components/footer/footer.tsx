@@ -1,5 +1,8 @@
 import { Box, Typography, Link as MuiLink, Grid } from "@mui/material";
 import { NavLink } from "react-router-dom";
+import facebook from "../assets/facebook.svg";
+import instagram  from "../assets/instagram.svg";
+import tiktok from "../assets/tiktok.svg";
 
 const footerLinks = [
   { title: "Me contacter", path: "/me-contacter" },
@@ -13,17 +16,17 @@ const socialLinks = [
   {
     name: "facebook",
     url: "https://www.facebook.com/latelierdonirium",
-    icon: "/images/facebook.svg",
+    icon: facebook,
   },
   {
     name: "instagram",
     url: "https://www.instagram.com/latelierdonirium?igsh=MWF3Z2dyNzR5N2l0Yw==",
-    icon: "/images/instagram.svg",
+    icon: instagram,
   },
   {
     name: "tikTok",
     url: "https://www.tiktok.com/@latelierdonirium?_t=8pf3S8fZJab&_r=1",
-    icon:  "/images/tiktok.svg",
+    icon:  tiktok,
   },
 ];
 
