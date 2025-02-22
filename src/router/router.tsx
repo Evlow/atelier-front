@@ -10,7 +10,6 @@ import CreationDetails from "../creations/creationDetails";
 import Animatronics from "../pages/animatronics";
 import HomePage from "../pages/homePage";
 import EscapeGames from "../pages/escapeGames";
-import CreationWorkshops from "../pages/creationWorkshops";
 import Holograms from "../pages/holograms";
 import VariousCreations from "../pages/variousCreations";
 export const Router = createBrowserRouter([
@@ -22,7 +21,6 @@ export const Router = createBrowserRouter([
       { path: "accueil", element: <HomePage /> },
       { path: "animatroniques", element: <Animatronics /> },
       { path: "escape-games", element: <EscapeGames /> },
-      { path: "creations-atelier", element: <CreationWorkshops /> },
       { path: "hologrammes-et-mapping", element: <Holograms /> },
       { path: "creations-diverses", element: <VariousCreations /> },
       // Routes pour les détails des créations

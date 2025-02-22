@@ -5,11 +5,11 @@ import { Creation } from "../models/creation";
 import CreationList from "../creations/creationList";
 import { Box } from "@mui/material";
 
-export default function Holograms() {
+export default function VariousCreations() {
     const [creations, setCreations] = useState<Creation[]>([]);
   
     useEffect(() => {
-        const categoryId = 5;   
+        const categoryId = 4;   
         fetch(`http://preprodback.karim-portfolio.xyz/api/Creation/GetCreationsByCategoryId/${categoryId}`)
         .then((response) => {
           if (!response.ok) {
@@ -26,7 +26,7 @@ export default function Holograms() {
         <NavBar />
   
         <Box>
-          <CreationList creations={creations} />
+          <CreationList creations={creations} basePath="creations-diverses"/>
         </Box>
   
         <Footer />
