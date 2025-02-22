@@ -1,8 +1,8 @@
 import { Box, Typography, Link as MuiLink, Grid } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import facebook from "../assets/facebook.svg";
-import instagram  from "../assets/instagram.svg";
-import tiktok from "../assets/tiktok.svg";
+import facebook from "../../assets/facebook.svg";
+import instagram  from "../../assets/instagram.svg";
+import tiktok from "../../assets/tiktok.svg";
 
 const footerLinks = [
   { title: "Me contacter", path: "/me-contacter" },
