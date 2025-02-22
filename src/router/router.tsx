@@ -24,17 +24,17 @@ export const Router = createBrowserRouter([
       { path: "hologrammes-et-mapping", element: <Holograms /> },
       { path: "creations-diverses", element: <VariousCreations /> },
       // Routes pour les détails des créations
-      { path: "animatroniques/:name", element: <CreationDetails /> },
-      { path: "escape-games/:name", element: <CreationDetails /> },
-      { path: "creations-diverses/:name", element: <CreationDetails /> },
+      { path: "animatroniques/:name/:id", element: <CreationDetails /> },
+      { path: "escape-games/:name/:id", element: <CreationDetails /> },
+      { path: "creations-diverses/:name/:id", element: <CreationDetails /> },
       {
-        path: "hologrammes-et-mapping/:name",
+        path: "hologrammes-et-mapping/:name/:id",
         element: <CreationDetails />,
       },
       { path: "inscription", element: <Register /> },
       { path: "dashboard", element: <Dashboard /> },
       { path: "connexion", element: <Login /> },
-      { path: ":name", element: <CreationDetails /> },
+      { path: ":name/:id", element: <CreationDetails /> },
     ],
   },
   {
