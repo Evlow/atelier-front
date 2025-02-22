@@ -13,17 +13,17 @@ const socialLinks = [
   {
     name: "facebook",
     url: "https://www.facebook.com/latelierdonirium",
-    icon: process.env.PUBLIC_URL + "/images/facebook.svg",
+    icon: "/images/facebook.svg",
   },
   {
     name: "instagram",
     url: "https://www.instagram.com/latelierdonirium?igsh=MWF3Z2dyNzR5N2l0Yw==",
-    icon: process.env.PUBLIC_URL + "/images/instagram.svg",
+    icon: "/images/instagram.svg",
   },
   {
     name: "tikTok",
     url: "https://www.tiktok.com/@latelierdonirium?_t=8pf3S8fZJab&_r=1",
-    icon: process.env.PUBLIC_URL + "/images/tiktok.svg",
+    icon:  "/images/tiktok.svg",
   },
 ];
 

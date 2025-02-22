@@ -12,7 +12,7 @@ const nav = [
   { title: "Accueil", path: "/accueil" },
   { title: "Animatroniques", path: "/animatroniques" },
   { title: "Escape Games", path: "/escape-games" },
-  { title: "Hologrammes & mapping", path: "/hologrammes&rmapping"},
+  { title: "Hologrammes & mapping", path: "/hologrammes-et-mapping"},
   { title: "Créations diverses", path: "/creations-diverses"},
   { title: "Me contacter", path: "/me-contacter" },
 ];
