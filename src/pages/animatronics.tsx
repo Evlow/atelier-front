@@ -320,7 +320,7 @@ export default function Animatronics() {
           </Typography>
         </Box>
       <Box>
-        <CreationList creations={creations} />
+        <CreationList creations={creations}  basePath="animatroniques" />
       </Box>
 
       <Footer />

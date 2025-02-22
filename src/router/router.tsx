@@ -4,7 +4,7 @@ import Register from "../register/register";
 import Login from "../login/login";
 import Dashboard from "../dashboard/dashboard";
 import Aside from "../admin/aside/aside";
-import RequireAuth from "./requireAuth";  
+import RequireAuth from "./requireAuth";
 import AdminNav from "../admin/adminNav/adminNav";
 import CreationDetails from "../creations/creationDetails";
 import Animatronics from "../pages/animatronics";
@@ -25,6 +25,14 @@ export const Router = createBrowserRouter([
       { path: "creations-atelier", element: <CreationWorkshops /> },
       { path: "hologrammes-et-mapping", element: <Holograms /> },
       { path: "creations-diverses", element: <VariousCreations /> },
+      // Routes pour les détails des créations
+      { path: "animatroniques/:name/:id", element: <CreationDetails /> },
+      { path: "escape-games/:name/:id", element: <CreationDetails /> },
+      { path: "creations-diverses/:name/:id", element: <CreationDetails /> },
+      {
+        path: "hologrammes-et-mapping/:name/:id",
+        element: <CreationDetails />,
+      },
       { path: "inscription", element: <Register /> },
       { path: "dashboard", element: <Dashboard /> },
       { path: "connexion", element: <Login /> },

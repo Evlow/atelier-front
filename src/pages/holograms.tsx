@@ -26,7 +26,7 @@ export default function Holograms() {
       <NavBar />
 
       <Box>
-        <CreationList creations={creations} />
+        <CreationList creations={creations} basePath="hologrammes-et-mapping" />
       </Box>
 
       <Footer />

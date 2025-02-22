@@ -5,9 +5,10 @@ import CreationCard from "./creationCard";
 
 interface Props {
   creations: Creation[];
+  basePath: string; // Permet de définir le bon chemin pour chaque catégorie
 }
 
-export default function CreationList({ creations }: Props) {
+export default function CreationList({ creations, basePath }: Props) {
   return (
     <Grid
       container
@@ -20,12 +21,15 @@ export default function CreationList({ creations }: Props) {
           key={index}
           item
           xs={12} // Une carte par ligne sur les petits écrans
-          sm={6}  // Deux cartes par ligne sur les écrans plus grands
-          md={4}  // Trois cartes par ligne sur les écrans encore plus grands
-          lg={3}  // Quatre cartes par ligne sur les très grands écrans
+          sm={6} // Deux cartes par ligne sur les écrans plus grands
+          md={4} // Trois cartes par ligne sur les écrans encore plus grands
+          lg={3} // Quatre cartes par ligne sur les très grands écrans
         >
-<Link to={`${creation.name}/${creation.id}`} style={{ textDecoration: "none" }}>
-<CreationCard creation={creation} />
+          <Link
+            to={`/${basePath}/${creation.name}/${creation.id}`}
+            style={{ textDecoration: "none" }}
+          >
+            <CreationCard creation={creation} />
           </Link>
         </Grid>
       ))}

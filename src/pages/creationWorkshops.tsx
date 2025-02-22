@@ -26,7 +26,7 @@ export default function CreationWorkshops() {
         <NavBar />
   
         <Box>
-          <CreationList creations={creations} />
+          <CreationList creations={creations}  basePath="creations-diverses" />
         </Box>
   
         <Footer />
