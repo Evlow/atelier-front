@@ -26,7 +26,7 @@ export default function CreationList({ creations, basePath }: Props) {
           lg={3} // Quatre cartes par ligne sur les très grands écrans
         >
           <Link
-            to={`/${basePath}/${creation.name}/${creation.id}`}
+            to={`/${basePath}/${creation.name}`}
             style={{ textDecoration: "none" }}
           >
             <CreationCard creation={creation} />
