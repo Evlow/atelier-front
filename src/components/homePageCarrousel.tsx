@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Creation } from "../models/creation";
 import { Link } from "react-router-dom";
-
 import { Card, CardActionArea, CardMedia, CircularProgress, Typography } from "@mui/material";
 
 export default function HomePageCarrousel() {
@@ -46,9 +45,11 @@ export default function HomePageCarrousel() {
         {/* Conteneur avec défilement horizontal */}
         <div className="carousel-container">
           {creations.map((creation) => {
-            const firstImage = Array.isArray(creation.pictureUrls)
+            const firstMedia = Array.isArray(creation.pictureUrls)
               ? creation.pictureUrls[0]
               : creation.pictureUrls;
+            
+            const isVideo = firstMedia && /\.(mp4|webm|ogg)$/i.test(firstMedia);
   
             return (
               <Link
@@ -58,18 +59,57 @@ export default function HomePageCarrousel() {
               >
                 <Card className="carousel-card">
                   <CardActionArea>
-                    <CardMedia
-                      component="img"
-                      image={firstImage}
-                      alt={creation.name}
-                      sx={{
-                        objectFit: "cover",
-                        height: { xs: "250px", sm: "300px", md: "400px" },
-                      }}
-                    />
-                    <Typography fontFamily="Lovers" fontSize="2.5rem" color="white" className="carousel-title">
-                      {creation.name}
-                    </Typography>
+                    {isVideo ? (
+                      <div style={{ position: "relative" }}>
+                        <video
+                          src={firstMedia}
+                          controls
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                            objectFit: "cover",
+                            maxHeight: "400px",
+                          }}
+                        />
+                        <Typography
+                          fontFamily="Lovers"
+                          fontSize="2.5rem"
+                          color="white"
+                          className="carousel-title"
+                          sx={{
+                            position: "absolute",
+                            bottom: "10px",
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            background: "rgba(0, 0, 0, 0.5)",
+                            padding: "5px 10px",
+                            borderRadius: "5px",
+                          }}
+                        >
+                          {creation.name}
+                        </Typography>
+                      </div>
+                    ) : (
+                      <CardMedia
+                        component="img"
+                        image={firstMedia}
+                        alt={creation.name}
+                        sx={{
+                          objectFit: "cover",
+                          height: { xs: "250px", sm: "300px", md: "400px" },
+                        }}
+                      />
+                    )}
+                    {!isVideo && (
+                      <Typography
+                        fontFamily="Lovers"
+                        fontSize="2.5rem"
+                        color="white"
+                        className="carousel-title"
+                      >
+                        {creation.name}
+                      </Typography>
+                    )}
                   </CardActionArea>
                 </Card>
               </Link>
@@ -78,5 +118,4 @@ export default function HomePageCarrousel() {
         </div>
       </div>
     );
-  }
-  
+}
