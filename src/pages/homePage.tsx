@@ -1,4 +1,3 @@
-
 import {
   Box,
   Button,
@@ -17,17 +16,16 @@ import Arabesque2 from "../assets/Arabesque2.svg";
 import Engrenage from "../assets/engrenage.svg";
 import Engrenage1 from "../assets/engrenage1.svg";
 import LogoInsta from "../assets/logo-insta.png";
-import creation from  "../assets/creation.jpg";
-import { Link } from "react-router-dom"; 
+import creation from "../assets/creation.jpg";
+import { Link } from "react-router-dom";
 import NavBar from "../components/navBar/navBar";
 import Footer from "../components/footer/footer";
-import HomePageCarrousel from "../components/homePageCarrousel";
+import HomePageCarrousel from "../components/carrousel/homePageCarrousel";
 import facebook from "../assets/facebook.svg";
-import instagram  from "../assets/instagram.svg";
+import instagram from "../assets/instagram.svg";
 import tiktok from "../assets/tiktok.svg";
 
 export default function HomePage() {
-
   const socialLinks = [
     {
       name: "facebook",
@@ -42,7 +40,7 @@ export default function HomePage() {
     {
       name: "tikTok",
       url: "https://www.tiktok.com/@latelierdonirium?_t=8pf3S8fZJab&_r=1",
-      icon:  tiktok,
+      icon: tiktok,
     },
   ];
 
@@ -162,26 +160,26 @@ export default function HomePage() {
         </Box>
 
         <Grid container justifyContent="center" spacing={2}>
-        {socialLinks.map((link) => (
-                <li key={link.name}>
-                  <MuiLink
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      display: "inline-block",
-                      width: 40,
-                      height: 40,
-                    }}
-                  >
-                    <img
-                      src={link.icon}
-                      alt={link.name}
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </MuiLink>
-                </li>
-              ))}
+          {socialLinks.map((link) => (
+            <li key={link.name}>
+              <MuiLink
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  display: "inline-block",
+                  width: 40,
+                  height: 40,
+                }}
+              >
+                <img
+                  src={link.icon}
+                  alt={link.name}
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </MuiLink>
+            </li>
+          ))}
         </Grid>
 
         {/* Engrenage image */}
@@ -267,7 +265,6 @@ export default function HomePage() {
                 textAlign: "center",
                 fontSize: { xs: "3rem", md: "4rem" },
                 marginBottom: "20px",
-                
               }}
             >
               Les Animatroniques
@@ -418,12 +415,6 @@ export default function HomePage() {
             />
           </Box>
         </Stack>
-
-
-
-
-
-
 
         <Stack
           component="article"

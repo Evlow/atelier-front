@@ -1,6 +1,6 @@
 import  { useState, useEffect } from "react";
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from "@mui/material";
-import { Creation } from "../models/creation";
+import { Creation } from "../../models/creation";
 
 
 
