@@ -22,9 +22,9 @@ import { Link } from "react-router-dom";
 import NavBar from "../components/navBar/navBar";
 import Footer from "../components/footer/footer";
 import HomePageCarrousel from "../components/homePageCarrousel";
-import facebook from "../../assets/facebook.svg";
-import instagram  from "../../assets/instagram.svg";
-import tiktok from "../../assets/tiktok.svg";
+import facebook from "../assets/facebook.svg";
+import instagram  from "../assets/instagram.svg";
+import tiktok from "../assets/tiktok.svg";
 
 export default function HomePage() {
 
