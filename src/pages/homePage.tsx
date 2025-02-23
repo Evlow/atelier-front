@@ -3,12 +3,12 @@ import {
   Box,
   Button,
   Grid,
-  IconButton,
   Stack,
   Typography,
   Avatar,
   List,
   ListItem,
+  Link as MuiLink,
 } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Home from "../assets/home.jpg";
@@ -162,37 +162,26 @@ export default function HomePage() {
         </Box>
 
         <Grid container justifyContent="center" spacing={2}>
-          {socialLinks.map((link) => (
-            <Grid item key={link.name}>
-              <IconButton
-                component="a"
-                href={link.url}
-                target="_blank"
-                aria-label={link.name}
-                sx={{
-                  color: "black",
-                  width: 65,
-                  height: 65,
-                  zIndex: 2, // Ensure the icons are on top
-                  position: "relative",
-                  backgroundColor: "transparent",
-                  "&:hover": {
-                    backgroundColor: "transparent",
-                  },
-                }}
-              >
-                <Box
-                  component="img"
-                  src={link.icon}
-                  alt={link.name}
-                  sx={{
-                    width: "100%",
-                    height: "100%",
-                  }}
-                />
-              </IconButton>
-            </Grid>
-          ))}
+        {socialLinks.map((link) => (
+                <li key={link.name}>
+                  <MuiLink
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      display: "inline-block",
+                      width: 40,
+                      height: 40,
+                    }}
+                  >
+                    <img
+                      src={link.icon}
+                      alt={link.name}
+                      style={{ width: "100%", height: "100%" }}
+                    />
+                  </MuiLink>
+                </li>
+              ))}
         </Grid>
 
         {/* Engrenage image */}
