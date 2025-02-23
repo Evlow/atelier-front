@@ -8,6 +8,7 @@ import {
   CircularProgress,
   Typography,
 } from "@mui/material";
+import "./homePageCarrousel.css"
 
 export default function HomePageCarrousel() {
   const [creations, setCreations] = useState<Creation[]>([]);
