@@ -1,15 +1,15 @@
 @font-face {
   font-family: 'Love';
-  src: url('/public/Fonts/LoveLight-Regular.ttf') format('truetype');
+  src: url('/public/fonts/LoveLight-Regular.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Lovers';
-  src: url('/public/Fonts/LoversQuarrel-Regular.ttf') format('truetype');
+  src: url('/public/fonts/LoversQuarrel-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Gowun';
-  src: url('/public/Fonts/GowunBatang-Regular.ttf') format('truetype');
+  src: url('/public/fonts/GowunBatang-Regular.ttf') format('truetype');
 }
 
 html, body, div, span, applet, object, iframe,
