@@ -5,6 +5,7 @@ import NavBar from "../components/navBar/navBar";
 import Footer from "../components/footer/footer";
 import { Creation } from "../models/creation";
 import CreationList from "../creations/creationList";
+import escape from "../assets/banniere-escape.jpg";
 import { Box } from "@mui/material";
 
 export default function EscapeGames() {
@@ -26,11 +27,27 @@ export default function EscapeGames() {
   return (
     <div>
       <NavBar />
-
+      <Box
+      sx={{ 
+        width: "100%",
+        height: "600px", 
+        overflow: "hidden",
+      }}
+    >
+      <Box
+        component="img"
+        src={escape}
+        alt="image bannière escape games"
+        sx={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover", // L'image couvre toute la bannière
+        }}
+      /> 
+    </Box>
       <Box>
         <CreationList creations={creations} basePath="escape-games"/>
       </Box>
-
       <Footer />
     </div>
   );

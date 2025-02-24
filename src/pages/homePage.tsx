@@ -17,6 +17,7 @@ import Engrenage from "../assets/engrenage.svg";
 import Engrenage1 from "../assets/engrenage1.svg";
 import LogoInsta from "../assets/logo-insta.png";
 import creation from "../assets/creation.jpg";
+import escape from "../assets/escape.jpg";
 import { Link } from "react-router-dom";
 import NavBar from "../components/navBar/navBar";
 import Footer from "../components/footer/footer";
@@ -357,7 +358,7 @@ export default function HomePage() {
                 marginTop: "20px",
               }}
             >
-              Les Escape Games
+              Escape Games
             </Typography>
 
             {/* Texte galerie exposition */}
@@ -424,8 +425,8 @@ export default function HomePage() {
             }}
           >
             <img
-              src={creation}
-              alt="Galerie Exposition"
+              src={escape}
+              alt="Escape Games"
               style={{
                 maxWidth: "100%",
                 height: "auto",
