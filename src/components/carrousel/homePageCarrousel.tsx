@@ -78,7 +78,7 @@ export default function HomePageCarrousel() {
                         src={firstMedia}
                         controls
                         style={{
-                          width: "100%",
+                          width: "350px",
                           height: "auto",
                           objectFit: "cover",
                           maxHeight: "400px",
@@ -89,15 +89,6 @@ export default function HomePageCarrousel() {
                         fontSize="2.5rem"
                         color="white"
                         className="carousel-title"
-                        sx={{
-                          position: "absolute",
-                          bottom: "10px",
-                          left: "50%",
-                          transform: "translateX(-50%)",
-                          background: "rgba(0, 0, 0, 0.5)",
-                          padding: "5px 10px",
-                          borderRadius: "5px",
-                        }}
                       >
                         {creation.name}
                       </Typography>
