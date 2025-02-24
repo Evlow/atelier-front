@@ -28,7 +28,7 @@ export default function EscapeGames() {
       <NavBar />
 
       <Box>
-        <CreationList creations={creations} basePath="escapes-game"/>
+        <CreationList creations={creations} basePath="escape-games"/>
       </Box>
 
       <Footer />
