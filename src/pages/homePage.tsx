@@ -24,7 +24,7 @@ import HomePageCarrousel from "../components/carrousel/homePageCarrousel";
 import facebook from "../assets/facebook.svg";
 import instagram from "../assets/instagram.svg";
 import tiktok from "../assets/tiktok.svg";
-
+import atelier from "../assets/Banniere.jpg";
 export default function HomePage() {
   const socialLinks = [
     {
@@ -51,7 +51,25 @@ export default function HomePage() {
   return (
     <div>
       <NavBar />
-
+      <Box
+      sx={{ 
+        width: "100%",
+        height: "600px", 
+        overflow: "hidden",
+      }}
+    >
+      <Box
+        component="img"
+        src={atelier}
+        alt="image bannière atelier d'onirium"
+        sx={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover", // L'image couvre toute la bannière
+        }}
+      />
+    
+    </Box>
       {/* Section principale */}
       <Box
         component="main"
