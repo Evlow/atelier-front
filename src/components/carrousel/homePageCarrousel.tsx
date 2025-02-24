@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import {
   Card,
   CardActionArea,
+  CardMedia,
   CircularProgress,
   Typography,
 } from "@mui/material";
-import "./homePageCarrousel.css";
+import "./homePageCarrousel.css"
 
 export default function HomePageCarrousel() {
   const [creations, setCreations] = useState<Creation[]>([]);
@@ -23,17 +24,7 @@ export default function HomePageCarrousel() {
         if (!response.ok)
           throw new Error("Erreur lors de la récupération des créations.");
         const data: Creation[] = await response.json();
-        
-        // Filtrer pour ne garder que les créations avec vidéos
-        const filteredCreations = data.filter((creation) => {
-          const firstMedia = Array.isArray(creation.pictureUrls)
-            ? creation.pictureUrls[0]
-            : creation.pictureUrls;
-
-          return firstMedia && /\.(mp4|webm|ogg)$/i.test(firstMedia);
-        });
-
-        setCreations(filteredCreations);
+        setCreations(data);
       } catch (err) {
         setError("Impossible de charger les créations.");
         console.error("Erreur lors de la récupération des créations:", err);
@@ -69,6 +60,10 @@ export default function HomePageCarrousel() {
             ? creation.pictureUrls[0]
             : creation.pictureUrls;
 
+          const isVideo = Array.isArray(creation.videoUrls)
+          ? creation.videoUrls[0]
+          : creation.videoUrls;
+
           return (
             <Link
               key={creation.id}
@@ -77,35 +72,57 @@ export default function HomePageCarrousel() {
             >
               <Card className="carousel-card">
                 <CardActionArea>
-                  <div style={{ position: "relative" }}>
-                    <video
-                      src={firstMedia}
-                      controls
-                      style={{
-                        width: "100%",
-                        height: "auto",
+                  {isVideo ? (
+                    <div style={{ position: "relative" }}>
+                      <video
+                        src={firstMedia}
+                        controls
+                        style={{
+                          width: "100%",
+                          height: "auto",
+                          objectFit: "cover",
+                          maxHeight: "400px",
+                        }}
+                      />
+                      <Typography
+                        fontFamily="Lovers"
+                        fontSize="2.5rem"
+                        color="white"
+                        className="carousel-title"
+                        sx={{
+                          position: "absolute",
+                          bottom: "10px",
+                          left: "50%",
+                          transform: "translateX(-50%)",
+                          background: "rgba(0, 0, 0, 0.5)",
+                          padding: "5px 10px",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        {creation.name}
+                      </Typography>
+                    </div>
+                  ) : (
+                    <CardMedia
+                      component="img"
+                      image={firstMedia}
+                      alt={creation.name}
+                      sx={{
                         objectFit: "cover",
-                        maxHeight: "400px",
+                        height: { xs: "250px", sm: "300px", md: "400px" },
                       }}
                     />
+                  )}
+                  {!isVideo && (
                     <Typography
                       fontFamily="Lovers"
                       fontSize="2.5rem"
                       color="white"
                       className="carousel-title"
-                      sx={{
-                        position: "absolute",
-                        bottom: "10px",
-                        left: "50%",
-                        transform: "translateX(-50%)",
-                        background: "rgba(0, 0, 0, 0.5)",
-                        padding: "5px 10px",
-                        borderRadius: "5px",
-                      }}
                     >
                       {creation.name}
                     </Typography>
-                  </div>
+                  )}
                 </CardActionArea>
               </Card>
             </Link>
