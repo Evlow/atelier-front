@@ -8,7 +8,7 @@ import {
   CircularProgress,
   Typography,
 } from "@mui/material";
-import "./homePageCarrousel.css"
+import "./homePageCarrousel.css";
 
 export default function HomePageCarrousel() {
   const [creations, setCreations] = useState<Creation[]>([]);
@@ -56,13 +56,15 @@ export default function HomePageCarrousel() {
       {/* Conteneur avec défilement horizontal */}
       <div className="carousel-container">
         {creations.map((creation) => {
-          const firstMedia = Array.isArray(creation.pictureUrls)
-            ? creation.pictureUrls[0]
-            : creation.pictureUrls;
+          const firstVideo =
+            Array.isArray(creation.videoUrls) && creation.videoUrls.length > 0
+              ? creation.videoUrls[0]
+              : null;
 
-          const isVideo = Array.isArray(creation.videoUrls)
-          ? creation.videoUrls[0]
-          : creation.videoUrls;
+          const firstImage =
+            Array.isArray(creation.pictureUrls) && creation.pictureUrls.length > 0
+              ? creation.pictureUrls[0]
+              : null;
 
           return (
             <Link
@@ -72,10 +74,10 @@ export default function HomePageCarrousel() {
             >
               <Card className="carousel-card">
                 <CardActionArea>
-                  {isVideo ? (
+                  {firstVideo ? (
                     <div style={{ position: "relative" }}>
                       <video
-                        src={firstMedia}
+                        src={firstVideo}
                         controls
                         style={{
                           width: "350px",
@@ -93,27 +95,26 @@ export default function HomePageCarrousel() {
                         {creation.name}
                       </Typography>
                     </div>
-                  ) : (
+                  ) : firstImage ? (
                     <CardMedia
                       component="img"
-                      image={firstMedia}
+                      image={firstImage}
                       alt={creation.name}
                       sx={{
                         objectFit: "cover",
                         height: { xs: "250px", sm: "300px", md: "400px" },
                       }}
                     />
-                  )}
-                  {!isVideo && (
-                    <Typography
-                      fontFamily="Lovers"
-                      fontSize="2.5rem"
-                      color="white"
-                      className="carousel-title"
-                    >
-                      {creation.name}
-                    </Typography>
-                  )}
+                  ) : null}
+
+                  <Typography
+                    fontFamily="Lovers"
+                    fontSize="2.5rem"
+                    color="white"
+                    className="carousel-title"
+                  >
+                    {creation.name}
+                  </Typography>
                 </CardActionArea>
               </Card>
             </Link>
