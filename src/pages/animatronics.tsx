@@ -69,7 +69,7 @@ export default function Animatronics() {
             />
           </Box>
         </Stack>
-        <Box width="90%" margin='auto'>
+        <Box width="80%" margin='auto'>
           <Typography
             variant="h2"
             sx={{
@@ -143,7 +143,7 @@ export default function Animatronics() {
           </Stack>
         </Box>
 
-        <Box width="90%" margin='auto'>
+        <Box width="80%" margin='auto'>
           <Typography
             variant="h2"
             sx={{
@@ -214,7 +214,7 @@ export default function Animatronics() {
           </Stack>
         </Box>
        
-        <Box width="90%" margin='auto'>
+        <Box width="80%" margin='auto'>
           <Typography
             variant="h2"
             sx={{
@@ -292,7 +292,7 @@ export default function Animatronics() {
           </Stack>
 
         </Box>
-        <Box my={4} width="90%" margin='auto'>
+        <Box my={4} width="80%" margin='auto'>
           <Typography
             variant="h3"
             sx={{
