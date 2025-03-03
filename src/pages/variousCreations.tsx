@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import NavBar from "../components/navBar/navBar";
-import Footer from "../components/footer/footer";
 import { Creation } from "../models/creation";
 import CreationList from "../creations/creationList";
 import { Box } from "@mui/material";
@@ -23,13 +21,13 @@ export default function VariousCreations() {
   
     return (
       <div>
-        <NavBar />
+  
   
         <Box>
           <CreationList creations={creations} basePath="creations-diverses"/>
         </Box>
   
-        <Footer />
+   
       </div>
     );
   }

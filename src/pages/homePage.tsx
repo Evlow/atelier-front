@@ -19,8 +19,6 @@ import LogoInsta from "../assets/logo-insta.png";
 import creation from "../assets/creation.jpg";
 import escape from "../assets/escape.jpg";
 import { Link } from "react-router-dom";
-import NavBar from "../components/navBar/navBar";
-import Footer from "../components/footer/footer";
 import HomePageCarrousel from "../components/carrousel/homePageCarrousel";
 import facebook from "../assets/facebook.svg";
 import instagram from "../assets/instagram.svg";
@@ -51,7 +49,6 @@ export default function HomePage() {
 
   return (
     <div>
-      <NavBar />
       <Box
         sx={{
           width: "100%",
@@ -741,7 +738,6 @@ export default function HomePage() {
           </Typography>
         </Box>
       </Box>
-      <Footer />
     </div>
   );
 }

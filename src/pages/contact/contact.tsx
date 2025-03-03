@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { TextField, Typography, Container, Box } from "@mui/material";
 import emailjs from "emailjs-com";
 import { LoadingButton } from "@mui/lab";
-import NavBar from "../../components/navBar/navBar";
-import Footer from "../../components/footer/footer";
 
 export default function Contact() {
   const [userEmail, setEmail] = useState("");
@@ -44,7 +42,6 @@ export default function Contact() {
 
   return (
     <>
-      <NavBar />
       <Container>
         <Typography variant="h2" align="center" padding="30px">
           Contactez-moi
@@ -216,7 +213,6 @@ export default function Contact() {
           </Box>
         </Box>
       </Container>
-      <Footer />
     </>
   );
 }

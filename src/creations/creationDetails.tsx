@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Creation } from "../models/creation";
-import NavBar from "../components/navBar/navBar";
 import { Box, Button, Typography } from "@mui/material";
-import Footer from "../components/footer/footer";
 import axios from "axios";
 
 export default function CreationDetails() {
@@ -51,7 +49,6 @@ export default function CreationDetails() {
 
   return (
     <>
-      <NavBar />
       <Box
         sx={{
           padding: 4,
@@ -204,7 +201,6 @@ export default function CreationDetails() {
           </Box>
         </Box>
       </Box>
-      <Footer />
     </>
   );
 }

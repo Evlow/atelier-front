@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import NavBar from "../components/navBar/navBar";
-import Footer from "../components/footer/footer";
 import { Creation } from "../models/creation";
 import CreationList from "../creations/creationList";
 import escape from "../assets/banniere-escape.jpg";
@@ -53,7 +51,6 @@ export default function EscapeGames() {
 
   return (
     <>
-      <NavBar />
 
       {/* 🖼️ Bannière */}
       <Box
@@ -199,7 +196,6 @@ export default function EscapeGames() {
         <CreationList creations={creations} basePath="escape-games" />
       </Box>
 
-      <Footer />
     </>
   );
 }

@@ -7,8 +7,6 @@ import Arabesque1 from "../assets/Arabesque1.svg";
 import Arabesque2 from "../assets/Arabesque2.svg";
 import { Box, Typography, Stack } from "@mui/material";
 import { Creation } from "../models/creation";
-import NavBar from "../components/navBar/navBar";
-import Footer from "../components/footer/footer";
 import CreationList from "../creations/creationList";
 
 export default function Animatronics() {
@@ -29,7 +27,6 @@ export default function Animatronics() {
 
   return (
     <div>
-      <NavBar />
  {/* Citation */}
  <Stack
           component="article"
@@ -323,7 +320,6 @@ export default function Animatronics() {
         <CreationList creations={creations}  basePath="animatroniques" />
       </Box>
 
-      <Footer />
     </div>
   );
 }
