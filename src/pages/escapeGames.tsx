@@ -111,22 +111,25 @@
           offrir des aventures toujours plus intenses, surprenantes et mémorables.
         </Typography>
         <Box sx={{ width: "80%", margin: "50px auto" }}>
-          {features.map((feature, index) => (
-            <Grid item xs={12} sm={6} md={2} key={index}>
-              <Card sx={{ textAlign: "center", padding: "10px"}}>
-                <CardContent>
-                  {feature.icon}
-                  <Typography variant="h6" sx={{ marginTop: 1, color: "black" }}>
-                    {feature.title}
-                  </Typography>
-                  <Typography variant="body2" sx={{ marginTop: 1, color: "black" }}>
-                    {feature.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-      </Box>
+  <Grid container spacing={2} justifyContent="center">
+    {features.map((feature, index) => (
+      <Grid item xs={12} sm={6} md={2} key={index}>
+        <Card sx={{ textAlign: "center", padding: "10px" }}>
+          <CardContent>
+            {feature.icon}
+            <Typography variant="h6" sx={{ marginTop: 1, color: "black" }}>
+              {feature.title}
+            </Typography>
+            <Typography variant="body2" sx={{ marginTop: 1, color: "black" }}>
+              {feature.description}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+    ))}
+  </Grid>
+</Box>
+
         <Box>
           <CreationList creations={creations} basePath="escape-games" />
         </Box>
