@@ -3,7 +3,6 @@ import { Outlet } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import ScrollToTop from './router/scrollTop';
 import Layout from './layout/layout';
-import React from 'react';
 
 
 // Création du thème personnalisé avec un fond noir
