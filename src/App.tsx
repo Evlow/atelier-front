@@ -64,6 +64,12 @@ const theme = createTheme({
       color: "#CFC5C3", // Couleur du texte du corps
       fontWeight: "lighter",
     },
+    body2: {
+      fontSize: "1rem",
+      fontFamily: "Alice",
+  
+      fontWeight: "lighter",
+    },
   },
 });
 
