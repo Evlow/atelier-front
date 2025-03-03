@@ -84,7 +84,7 @@ export default function EscapeGames() {
         </Box>
       </Box>
 
-      <Box sx={{ width: "80%", margin: "40px auto", textAlign: "justify" }}>
+      <Box sx={{ width: "70%", margin: "40px auto", textAlign: "justify" }}>
         <Typography variant="body1">
           Passionnée par l'univers du jeu interactif et par la manière de
           raconter des histoires à travers des environnements captivants, depuis
@@ -108,8 +108,8 @@ export default function EscapeGames() {
       </Box>
 
       {/* Section Features avec background color */}
-      <Box sx={{ margin: "60px auto" }}>
-        <Grid container spacing={0} justifyContent="center">
+      <Box sx={{ width:"80%" ,margin: "60px auto" }}>
+        <Grid container spacing={3} justifyContent="center">
           {features.map((feature, index) => (
             <Grid
               item
@@ -183,7 +183,7 @@ export default function EscapeGames() {
       </Box>
 
       {/* Deuxième partie du texte après les features */}
-      <Box sx={{ width: "80%", margin: "40px auto", textAlign: "justify" }}>
+      <Box sx={{ width: "70%", margin: "40px auto", textAlign: "justify" }}>
         <Typography variant="body1">
           Ma vision est de repenser les escape games et les expériences
           immersives en mettant l'accent sur la créativité, l'innovation et la
