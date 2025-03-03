@@ -53,24 +53,23 @@ export default function HomePage() {
     <div>
       <NavBar />
       <Box
-      sx={{ 
-        width: "100%",
-        height: "600px", 
-        overflow: "hidden",
-      }}
-    >
-      <Box
-        component="img"
-        src={atelier}
-        alt="image bannière atelier d'onirium"
         sx={{
           width: "100%",
-          height: "100%",
-          objectFit: "cover", // L'image couvre toute la bannière
+          height: "600px",
+          overflow: "hidden",
         }}
-      />
-    
-    </Box>
+      >
+        <Box
+          component="img"
+          src={atelier}
+          alt="image bannière atelier d'onirium"
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover", // L'image couvre toute la bannière
+          }}
+        />
+      </Box>
       {/* Section principale */}
       <Box
         component="main"
@@ -272,7 +271,7 @@ export default function HomePage() {
           <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
             <img
               src={creation}
-              alt="Création unique"
+              alt="animatronique"
               style={{ maxWidth: "100%", height: "auto" }}
             />
           </Box>
@@ -313,7 +312,7 @@ export default function HomePage() {
             >
               <Button
                 component={Link}
-                to="/creations-atelier"
+                to="/animatroniques"
                 sx={{
                   width: { xs: "70%", sm: "25%" }, // Ajuste la taille du bouton sur mobile et bureau
                   height: 40,
@@ -346,9 +345,7 @@ export default function HomePage() {
           justifyContent="space-between"
           sx={{ marginTop: "50px" }}
         >
-          {/* Conteneur pour le titre et la description */}
           <Box sx={{ flex: 1, order: { xs: 1, md: 0 } }}>
-            {/* Titre "Galerie Expo" */}
             <Typography
               variant="h2"
               sx={{
@@ -361,7 +358,6 @@ export default function HomePage() {
               Escape Games
             </Typography>
 
-            {/* Texte galerie exposition */}
             <Typography
               component="section"
               variant="body1"
@@ -369,17 +365,24 @@ export default function HomePage() {
                 textAlign: "center",
               }}
             >
-              Mon univers est atypique, influencé par le fantastique, et j'aime
-              repousser les limites de ce qui est possible. <br />
-              Chaque création, qu'il s'agisse de décors grandeur nature,
-              d'impressions 3D, ou d'éléments sur mesure comme des mugs
-              personnalisés, est conçue pour sortir de l'ordinaire et offrir une
-              expérience visuelle et sensorielle unique.
-              <br />
-              <br />
-              Mon objectif est de vous inviter à rêver, à explorer des mondes
-              nouveaux, tout en redéfinissant les codes de la créativité et de
-              l'innovation.
+              Dark Hypercube Experience est un projet nomade qui représente une
+              avancée majeure dans le domaine de l’immersion. <br />
+              Le concept repose sur un mécanisme central novateur, ainsi que de
+              décors ultra-immersifs, conçus pour offrir une dynamique de jeu
+              inédite et une expérience encore jamais vue dans l’univers des
+              escape games. <br /><br />L'objectif de Dark Hypercube Experience est de
+              proposer aux joueurs une aventure immersive, pleine de surprises
+              et d'interactions inattendues, tout en gardant une fluidité et une
+              intensité constantes tout au long du jeu.
+            </Typography>
+            <Typography
+              component="section"
+              variant="body1"
+              sx={{
+                textAlign: "center",
+              }}
+            >
+             
             </Typography>
             <Box
               sx={{

@@ -1,6 +1,7 @@
 
 import { Outlet } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import ScrollToTop from './router/scrollTop';
 
 
 // Création du thème personnalisé avec un fond noir
@@ -71,6 +72,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
     <CssBaseline />
+    <ScrollToTop /> 
     <Outlet /> 
   </ThemeProvider>
     
