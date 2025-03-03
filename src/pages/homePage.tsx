@@ -8,6 +8,8 @@ import {
   List,
   ListItem,
   Link as MuiLink,
+  CardContent,
+  Card,
 } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import Home from "../assets/home.jpg";
@@ -24,6 +26,8 @@ import facebook from "../assets/facebook.svg";
 import instagram from "../assets/instagram.svg";
 import tiktok from "../assets/tiktok.svg";
 import atelier from "../assets/Banniere.jpg";
+import { Brush, Visibility, Star, Support, Lightbulb } from "@mui/icons-material";
+
 export default function HomePage() {
   const socialLinks = [
     {
@@ -42,6 +46,41 @@ export default function HomePage() {
       icon: tiktok,
     },
   ];
+
+const features = [
+  {
+    title: "Créations uniques & sur-mesure",
+    description:
+      "Chaque pièce est pensée et fabriquée selon vos envies, pour un résultat personnalisé.",
+    icon: <Brush fontSize="large" sx={{ color: "#8B0000" }} />,
+  },
+  {
+    title: "Immersion Totale",
+    description:
+      "Escape games, animatroniques et hologrammes pour des expériences captivantes et inoubliables.",
+    icon: <Visibility fontSize="large" sx={{ color: "#8B0000" }} />,
+  },
+  {
+    title: "Qualité & Finitions Haut de Gamme",
+    description:
+      "Un travail minutieux avec des matériaux et des techniques de pointe pour un rendu exceptionnel.",
+    icon: <Star fontSize="large" sx={{ color: "#8B0000" }} />,
+  },
+  {
+    title: "Accompagnement & Conseil",
+    description:
+      "Je vous guide et vous conseille à chaque étape pour transformer vos idées en réalité.",
+    icon: <Support fontSize="large" sx={{ color: "#8B0000" }} />,
+  },
+  {
+    title: "Impact Visuel Fort",
+    description:
+      "Des créations qui attirent le regard et marquent les esprits, idéales pour vos événements et espaces.",
+    icon: <Lightbulb fontSize="large" sx={{ color: "#8B0000" }} />,
+  },
+ 
+];
+
 
   // useEffect(() => {
   //   if (!creationsLoaded) dispatch(fetchCreationsAsync());
@@ -257,7 +296,7 @@ export default function HomePage() {
         </Box>
       </Stack>
 
-      <Box component="main" sx={{ width: "80%", margin: "0 auto", mt: 4 }}>
+      <Box component="main" sx={{ width: "90%", margin: "0 auto", mt: 4 }}>
         <Stack
           component="article"
           direction={{ xs: "column", md: "row" }}
@@ -435,6 +474,71 @@ export default function HomePage() {
           </Box>
         </Stack>
 
+        <Box sx={{  margin: "60px auto", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 3 }}>
+  {features.map((feature, index) => (
+    <Box
+      key={index}
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        flex: "1 1 230px", // Largeur flexible avec max de 280px
+        maxWidth: "230px",
+        minWidth: "200px", // Pour éviter trop de rétrécissement
+      }}
+    >
+      <Card
+        sx={{
+          boxSizing: "border-box",
+          textAlign: "center",
+          width: "100%",
+          height: "auto",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          background: "#E7E2E1",
+          paddingY: 2,
+          transition: "transform 0.3s ease-in-out",
+          "&:hover": { transform: "scale(1.05)" },
+        }}
+      >
+        <CardContent
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            p: 1.25, 
+            height: "auto",
+          }}
+        >
+          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 2 }}>
+            {feature.icon}
+            <Typography
+              variant="h3"
+              sx={{
+                marginTop: 1,
+                fontSize: {
+                  xs: "2rem",
+                  sm: "2.5rem",
+                  md: "2.5rem",
+                  lg: "2.5rem",
+                },
+                color: "black",
+              }}
+            >
+              {feature.title}
+            </Typography>
+          </Box>
+
+          <Typography variant="body2" sx={{ textAlign: "center" }}>
+            {feature.description}
+          </Typography>
+        </CardContent>
+      </Card>
+    </Box>
+  ))}
+</Box>
         <Stack
           component="article"
           direction={{ xs: "column", md: "row" }}
