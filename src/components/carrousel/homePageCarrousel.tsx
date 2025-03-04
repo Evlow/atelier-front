@@ -60,8 +60,9 @@ export default function HomePageCarrousel() {
           gap: "10px",
           paddingBottom: "10px",
           scrollbarWidth: "none", // Masque la barre de défilement pour Firefox
-          msOverflowStyle: "none", // Masque la barre de défilement pour IE et Edge
-        } as React.CSSProperties}
+           // @ts-expect-error: On ignore le type pour la propriété spécifique à MS
+          "-ms-overflow-style": "none", // Masque la barre de défilement pour IE et Edge
+        }}
       >
         {creations.map((creation) => {
           const firstVideo =
@@ -87,6 +88,7 @@ export default function HomePageCarrousel() {
                   position: "relative",
                   transition: "transform 0.3s ease",
                   height: "100%",
+                  width: "300px", // Fixe la largeur de chaque carte
                   "&:hover": {
                     transform: "none",
                   },
@@ -100,8 +102,8 @@ export default function HomePageCarrousel() {
                         controls
                         style={{
                           width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
+                          height: "200px", // Fixe la hauteur du vidéo
+                          objectFit: "cover", // L'image s'adapte sans déformation
                         }}
                       />
                       <Typography
@@ -135,8 +137,8 @@ export default function HomePageCarrousel() {
                       alt={creation.name}
                       sx={{
                         objectFit: "cover",
-                        width: "100%",
-                        height: "100%",
+                        width: "100%", // Fixe la largeur de l'image
+                        height: "200px", // Fixe la hauteur de l'image
                       }}
                     />
                   ) : null}
