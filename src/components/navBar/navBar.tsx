@@ -1,30 +1,64 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { AppBar, Toolbar, IconButton, MenuItem, Container, Box, Typography } from "@mui/material";
 import { Facebook, Instagram } from "@mui/icons-material";
 import MenuIcon from '@mui/icons-material/Menu';
 import { SiTiktok } from "react-icons/si";
 import { NavLink } from "react-router-dom";
 import Divider from '@mui/material/Divider';
-import "./navBar.css";
+import { styled } from '@mui/system'; // Pour gérer les pseudo-classes CSS
 
 // Liste des éléments du menu de navigation
 const nav = [
   { title: "Accueil", path: "/accueil" },
   { title: "Animatroniques", path: "/animatroniques" },
   { title: "Escape Games", path: "/escape-games" },
-  { title: "Hologrammes & mapping", path: "/hologrammes-et-mapping"},
-  { title: "Créations diverses", path: "/creations-diverses"},
+  { title: "Hologrammes & mapping", path: "/hologrammes-et-mapping" },
+  { title: "Créations diverses", path: "/creations-diverses" },
   { title: "Me contacter", path: "/me-contacter" },
 ];
 
-// Liste des icônes de profil
-// const icon = [
-//   {
-//     title: "Mon profil",
-//     path: "/connexion",
-//     icon: process.env.PUBLIC_URL + "/Images/profil.webp",
-//   },
-// ];
+  
+  const StyledNavLink = styled(NavLink)({
+    textDecoration: 'none',
+    color: 'black',
+    fontSize: '1.3rem',
+    padding: '4px 20px',
+    borderRadius: '6px',
+    position: 'relative',
+    display: 'inline-block',
+    transition: 'all 0.6s ease-in-out',
+    '&:hover': {
+      color: '#640a02', // Bordeaux au survol
+      textDecoration: 'none',
+    },
+    '&:before': {
+      content: "''",
+      position: 'absolute',
+      left: '0',
+      right: '0',
+      bottom: '0',
+      height: '3px',
+      backgroundColor: '#640a02', // Ligne en bas du lien
+      transform: 'scaleX(0)', // Au départ, la ligne est invisible
+      transformOrigin: 'center', // Commencer l'animation au centre
+      transition: 'transform 0.25s ease-out',
+    },
+    '&:hover:before': {
+      transform: 'scaleX(1)', // La ligne s'étend lorsque l'on survole
+      transformOrigin: 'center', // L'extension commence au centre
+    },
+     // Classe pour l'état actif
+  '&.active': {
+    color: '#640a02', // Bordeaux quand le lien est actif
+    textDecoration: 'none', // Pas de soulignement
+  },
+  '&.active:before': {
+    transform: 'scaleX(1)', // La ligne reste visible quand le lien est actif
+    transformOrigin: 'center', // La ligne reste ancrée au centre
+  }
+  });
+  
+
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,15 +67,15 @@ export default function NavBar() {
   const handleMenuClose = () => setMenuOpen(false);
 
   return (
-<AppBar
-  position="static"
-  sx={{
-    backgroundColor: "#e7e2e1",
-    paddingTop: { xs: "20px", sm: "30px" },
-    paddingBottom: { xs: "10px", sm: "30px" },
-
-  }}
->      <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: "#e7e2e1",
+        paddingTop: { xs: "20px", sm: "30px" },
+        paddingBottom: { xs: "10px", sm: "30px" },
+      }}
+    >
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         {/* Menu Burger */}
         <IconButton
           aria-label="menu"
@@ -63,34 +97,18 @@ export default function NavBar() {
         >
           L'Atelier d'Onirium
         </Typography>
-
-        {/* Icône de profil */}
-        {/* {icon.map((item) => (
-          <IconButton
-            key={item.path}
-            component={NavLink}
-            to={item.path}
-          >
-            <img
-              src={item.icon}
-              alt={item.title}
-              className="icon"
-            />
-          </IconButton>
-        ))} */}
       </Toolbar>
 
-
-<Divider
-  sx={{
-    margin: "0 auto",
-    backgroundColor: "#640a02",
-    border: 0,
-    height: "4px",
-    width: "80%",
-    marginY: 2, 
-  }}
-/>
+      <Divider
+        sx={{
+          margin: "0 auto",
+          backgroundColor: "#640a02",
+          border: 0,
+          height: "4px",
+          width: "80%",
+          marginY: 2,
+        }}
+      />
 
       {/* Menu Mobile */}
       {menuOpen && (
@@ -98,7 +116,7 @@ export default function NavBar() {
           sx={{
             paddingTop: "80px",
             position: "fixed",
-            paddingBottom: { xs: "50px", sm: "30px", md: "20px" }, // Padding spécifique pour mobile, tablette et bureau
+            paddingBottom: { xs: "50px", sm: "30px", md: "20px" },
             top: 0,
             left: 0,
             width: "100vw",
@@ -112,17 +130,9 @@ export default function NavBar() {
         >
           {nav.map((item) => (
             <MenuItem key={item.path} onClick={handleMenuClose}>
-              <NavLink
-                to={item.path}
-                style={{
-                  textDecoration: "none",
-                  color: "black",
-                  fontSize: "1.2rem",
-                  padding: "5px",
-                }}
-              >
+              <StyledNavLink to={item.path}>
                 {item.title}
-              </NavLink>
+              </StyledNavLink>
             </MenuItem>
           ))}
 
@@ -169,36 +179,35 @@ export default function NavBar() {
         </Box>
       )}
 
-     {/* Menu Desktop */}
-<Container sx={{ display: { xs: "none", md: "flex" }, justifyContent: "center" }}>
-  <Box component="nav">
-    <ul
-      style={{
-        display: "flex",
-        listStyle: "none",
-        padding: 0,
-        margin: 0,
-        flexWrap: "nowrap", // Empêche le wrapping
-      }}
-    >
-      {nav.map((item) => (
-        <li
-          key={item.path}
-          style={{
-            padding: "20px",
-            fontSize: "1.3rem",
-            whiteSpace: "nowrap", // Empêche le wrapping du texte individuel
-          }}
-        >
-          <NavLink to={item.path} style={{ textDecoration: "none", color: "black" }}>
-            {item.title}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
-  </Box>
-</Container>
-
+      {/* Menu Desktop */}
+      <Container sx={{ display: { xs: "none", md: "flex" }, justifyContent: "center" }}>
+        <Box component="nav">
+          <ul
+            style={{
+              display: "flex",
+              listStyle: "none",
+              padding: 0,
+              margin: 0,
+              flexWrap: "nowrap",
+            }}
+          >
+            {nav.map((item) => (
+              <li
+                key={item.path}
+                style={{
+                  padding: "20px",
+                  fontSize: "1.3rem",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                <StyledNavLink to={item.path}>
+                  {item.title}
+                </StyledNavLink>
+              </li>
+            ))}
+          </ul>
+        </Box>
+      </Container>
     </AppBar>
   );
 }
