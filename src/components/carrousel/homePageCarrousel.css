@@ -14,7 +14,7 @@
     pointer-events: none; /* Empêche l'interférence avec l'effet de survol */
 }
 
-.carrousel-card:hover .carousel-title {
+.carrousel-card:hover .carrousel-title {
     opacity: 1; /* Affiche le titre lorsque la carte est survolée */
     transform: translateY(0); /* Le titre monte à sa position d'origine */
 }
