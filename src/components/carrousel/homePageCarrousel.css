@@ -1,7 +1,7 @@
 
 
 /* Style pour le titre de la création qui apparaît au survol */
-.carousel-title {
+.carrousel-title {
     position: absolute;
     bottom: 0; /* Le titre est collé au bas de la carte */
     left: 0;
@@ -14,7 +14,7 @@
     pointer-events: none; /* Empêche l'interférence avec l'effet de survol */
 }
 
-.carousel-card:hover .carousel-title {
+.carrousel-card:hover .carousel-title {
     opacity: 1; /* Affiche le titre lorsque la carte est survolée */
     transform: translateY(0); /* Le titre monte à sa position d'origine */
 }

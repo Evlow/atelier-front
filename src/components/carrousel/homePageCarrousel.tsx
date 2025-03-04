@@ -84,6 +84,7 @@ export default function HomePageCarrousel() {
               style={{ textDecoration: "none", flexShrink: 0 }}
             >
               <Card
+              className="carrousel-card"
                 sx={{
                   backgroundColor: "transparent",
                   overflow: "hidden",
@@ -124,7 +125,7 @@ export default function HomePageCarrousel() {
                 </CardActionArea>
 
                 <Typography
-                  className="carousel-title"
+                  className="carrousel-title"
                   fontFamily="Lovers"
                   fontSize="2.5rem"
                   color="white"
