@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { TextField, Typography, Container, Box } from "@mui/material";
+import { TextField, Typography, Container, Box, Snackbar, Alert } from "@mui/material";
 import emailjs from "emailjs-com";
 import { LoadingButton } from "@mui/lab";
+import Social from "../../components/social/social";
 
 export default function Contact() {
   const [userEmail, setEmail] = useState("");
@@ -10,8 +11,32 @@ export default function Contact() {
   const [userMessage, setMessage] = useState("");
   const [userPhone, setPhone] = useState("");
 
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [snackbarSeverity, setSnackbarSeverity] = useState<"success" | "error">("success");
+
+  const validateForm = () => {
+    if (!userEmail || !userFirstName || !userLastName || !userMessage) {
+      setSnackbarMessage("Veuillez remplir tous les champs obligatoires.");
+      setSnackbarSeverity("error");
+      setOpenSnackbar(true);
+      return false;
+    }
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (!emailPattern.test(userEmail)) {
+      setSnackbarMessage("Veuillez entrer un email valide.");
+      setSnackbarSeverity("error");
+      setOpenSnackbar(true);
+      return false;
+    }
+    return true;
+  };
+
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!validateForm()) return; // Si la validation échoue, on ne soumet pas le formulaire
+
     alert("😀 Merci pour votre message, il sera traité au plus vite 😀");
 
     const templateId = "template_oltfym4";
@@ -28,8 +53,10 @@ export default function Contact() {
 
     emailjs
       .send(serviceId, templateId, templateParams, publicKey)
-      .then((response: unknown) => {
-        console.log("Email sent successfully", response);
+      .then(() => {
+        setSnackbarMessage("Votre message a été envoyé avec succès!");
+        setSnackbarSeverity("success");
+        setOpenSnackbar(true);
         setFirstName("");
         setEmail("");
         setPhone("");
@@ -37,13 +64,16 @@ export default function Contact() {
       })
       .catch((error) => {
         console.error("Error sending email:", error);
+        setSnackbarMessage("Une erreur est survenue. Veuillez réessayer.");
+        setSnackbarSeverity("error");
+        setOpenSnackbar(true);
       });
   };
 
   return (
     <>
-      <Container>
-        <Typography variant="h2" align="center" padding="30px">
+      <Container >
+        <Typography variant="h2" align="center" padding="30px" color="white">
           Contactez-moi
         </Typography>
 
@@ -57,18 +87,19 @@ export default function Contact() {
               variant="body1"
               sx={{
                 textAlign: "center",
+                alignSelf: 'center',
                 marginBottom: 5, // Espace entre les paragraphes
                 lineHeight: 1.8, // Ajuste la hauteur de ligne pour améliorer la lisibilité
                 paddingBottom: "20px",
+                color: "white", // Texte blanc pour une meilleure lisibilité
               }}
             >
               Si vous avez un projet sur mesure à soumettre ou des questions
               concernant mes services, n'hésitez pas à remplir ce formulaire
               pour me contacter. <br />
               <span>contact@latelierdonirium.fr</span>
-
-              
             </Typography>
+            <Social />
           </Box>
 
           {/* Formulaire à droite */}
@@ -82,18 +113,18 @@ export default function Contact() {
                   fullWidth
                   required
                   InputProps={{
-                    style: { color: "white" }, // Change text color to white
+                    style: { color: "#E7E2E1" }, // Texte clair dans les champs
                   }}
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
-                        borderColor: "#E7E2E1", // Set the border color
+                        borderColor: "#640a02", // Set the border color
                       },
                       "&:hover fieldset": {
-                        borderColor: "#E7E2E1", // Border color on hover
+                        borderColor: "#640a02", // Border color on hover
                       },
                       "&.Mui-focused fieldset": {
-                        borderColor: "#E7E2E1", // Border color when focused
+                        borderColor: "#640a02", // Border color when focused
                       },
                     },
                   }}
@@ -105,18 +136,18 @@ export default function Contact() {
                   fullWidth
                   required
                   InputProps={{
-                    style: { color: "white" }, // Change text color to white
+                    style: { color: "#E7E2E1" }, // Texte clair dans les champs
                   }}
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
-                        borderColor: "#E7E2E1", // Set the border color
+                        borderColor: "#640a02", // Set the border color
                       },
                       "&:hover fieldset": {
-                        borderColor: "#E7E2E1", // Border color on hover
+                        borderColor: "#640a02", // Border color on hover
                       },
                       "&.Mui-focused fieldset": {
-                        borderColor: "#E7E2E1", // Border color when focused
+                        borderColor: "#640a02", // Border color when focused
                       },
                     },
                   }}
@@ -127,18 +158,18 @@ export default function Contact() {
                   onChange={(e) => setPhone(e.target.value)}
                   fullWidth
                   InputProps={{
-                    style: { color: "white" }, // Change text color to white
+                    style: { color: "#E7E2E1" }, // Texte clair dans les champs
                   }}
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
-                        borderColor: "#E7E2E1", // Set the border color
+                        borderColor: "#640a02", // Set the border color
                       },
                       "&:hover fieldset": {
-                        borderColor: "#E7E2E1", // Border color on hover
+                        borderColor: "#640a02", // Border color on hover
                       },
                       "&.Mui-focused fieldset": {
-                        borderColor: "#E7E2E1", // Border color when focused
+                        borderColor: "#640a02", // Border color when focused
                       },
                     },
                   }}
@@ -151,18 +182,18 @@ export default function Contact() {
                   fullWidth
                   required
                   InputProps={{
-                    style: { color: "white" }, // Change text color to white
+                    style: { color: "#E7E2E1" }, // Texte clair dans les champs
                   }}
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
-                        borderColor: "#E7E2E1", // Set the border color
+                        borderColor: "#640a02", // Set the border color
                       },
                       "&:hover fieldset": {
-                        borderColor: "#E7E2E1", // Border color on hover
+                        borderColor: "#640a02", // Border color on hover
                       },
                       "&.Mui-focused fieldset": {
-                        borderColor: "#E7E2E1", // Border color when focused
+                        borderColor: "#640a02", // Border color when focused
                       },
                     },
                   }}
@@ -176,18 +207,18 @@ export default function Contact() {
                   fullWidth
                   required
                   InputProps={{
-                    style: { color: "white" }, // Change text color to white
+                    style: { color: "#E7E2E1" }, // Texte clair dans les champs
                   }}
                   sx={{
                     "& .MuiOutlinedInput-root": {
                       "& fieldset": {
-                        borderColor: "#E7E2E1", // Set the border color
+                        borderColor: "#640a02", // Set the border color
                       },
                       "&:hover fieldset": {
-                        borderColor: "#E7E2E1", // Border color on hover
+                        borderColor: "#640a02", // Border color on hover
                       },
                       "&.Mui-focused fieldset": {
-                        borderColor: "#E7E2E1", // Border color when focused
+                        borderColor: "#640a02", // Border color when focused
                       },
                     },
                   }}
@@ -199,11 +230,11 @@ export default function Contact() {
                   sx={{
                     mt: "20px",
                     mb: "20px",
-                      backgroundColor: "#e7e2e1", // Fond bordeaux
-                borderColor: "#640a02", // Bordure bordeaux
-                color: "#640a02", // Texte bordeaux
-                fontFamily: "Alice", // Police "Alice"
-                border: "1px solid", // Bordure
+                    backgroundColor: "#E7E2E1", // Fond clair
+                    borderColor: "#640a02", // Bordure bordeaux
+                    color: "#640a02", // Texte bordeaux
+                    fontFamily: "Alice", // Police "Alice"
+                    border: "1px solid", // Bordure
                   }}
                 >
                   Envoyer le message
@@ -213,6 +244,17 @@ export default function Contact() {
           </Box>
         </Box>
       </Container>
+
+      {/* Snackbar pour afficher les messages de succès ou d'erreur */}
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={() => setOpenSnackbar(false)}
+      >
+        <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%' }}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
     </>
   );
 }

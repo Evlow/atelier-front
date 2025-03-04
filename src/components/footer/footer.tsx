@@ -1,8 +1,6 @@
 import { Box, Typography, Link as MuiLink, Grid } from "@mui/material";
 import { NavLink } from "react-router-dom";
-import facebook from "../../assets/facebook.svg";
-import instagram  from "../../assets/instagram.svg";
-import tiktok from "../../assets/tiktok.svg";
+import Social from "../social/social";
 
 const footerLinks = [
   { title: "Me contacter", path: "/me-contacter" },
@@ -12,23 +10,6 @@ const footerLinks = [
 
 ];
 
-const socialLinks = [
-  {
-    name: "facebook",
-    url: "https://www.facebook.com/latelierdonirium",
-    icon: facebook,
-  },
-  {
-    name: "instagram",
-    url: "https://www.instagram.com/latelierdonirium?igsh=MWF3Z2dyNzR5N2l0Yw==",
-    icon: instagram,
-  },
-  {
-    name: "tikTok",
-    url: "https://www.tiktok.com/@latelierdonirium?_t=8pf3S8fZJab&_r=1",
-    icon:  tiktok,
-  },
-];
 
 export default function Footer() {
   return (
@@ -62,38 +43,10 @@ export default function Footer() {
             >
               L'Atelier d'Onirium
             </Typography>
-            <Box
-              component="ul"
-              sx={{
-                display: "flex",
-                gap: "20px",
-                justifyContent: "center",
-                padding: 0,
-                listStyle: "none",
-              }}
-            >
-              {socialLinks.map((link) => (
-                <li key={link.name}>
-                  <MuiLink
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      display: "inline-block",
-                      width: 40,
-                      height: 40,
-                    }}
-                  >
-                    <img
-                      src={link.icon}
-                      alt={link.name}
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </MuiLink>
-                </li>
-              ))}
-            </Box>
+            <Social />
+
           </Grid>
+
           <Grid item xs={12} md={4} sx={{ textAlign: "center" }}>
             <Box component="ul" sx={{ listStyle: "none", padding: 0, margin: 0 }}>
               {footerLinks.map((item) => (
