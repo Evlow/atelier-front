@@ -47,22 +47,22 @@ export default function HomePageCarrousel() {
         fontFamily="Lovers"
         sx={{
           textAlign: "left",
-          fontSize: { xs: "4rem", md: "6rem" },
+          fontSize: { xs: "3rem", sm: "4rem", md: "6rem" }, // Ajuste selon la taille de l'écran
         }}
       >
         Les dernières créations
       </Typography>
 
-      {/* Conteneur avec défilement horizontal */}
       <div
         style={{
           display: "flex",
           overflowX: "auto",
           gap: "10px",
           paddingBottom: "10px",
-          scrollbarWidth: "none", // Masque la barre de défilement pour Firefox
-          // @ts-expect-error: On ignore le type pour la propriété spécifique à MS
-          "-ms-overflow-style": "none", // Masque la barre de défilement pour IE et Edge
+          scrollbarWidth: "none",
+                    // @ts-expect-error: On ignore le type pour la propriété spécifique à MS
+
+          "-ms-overflow-style": "none",
         }}
       >
         {creations.map((creation) => {
@@ -84,15 +84,14 @@ export default function HomePageCarrousel() {
               style={{ textDecoration: "none", flexShrink: 0 }}
             >
               <Card
-              className="carrousel-card"
+                className="carrousel-card"
                 sx={{
                   backgroundColor: "transparent",
                   overflow: "hidden",
                   position: "relative",
                   transition: "transform 0.3s ease",
-                  height: "100%",
-                  width: "350px", // Fixe la largeur de chaque carte
-                  "&:hover": {
+                  width: { xs: "250px", sm: "300px", md: "350px" }, // Ajuste la largeur pour les petits écrans
+                  height: "100%",                  "&:hover": {
                     transform: "none",
                   },
                 }}
@@ -105,8 +104,8 @@ export default function HomePageCarrousel() {
                         controls
                         style={{
                           width: "100%",
-                          height: "350px", // Fixe la hauteur du vidéo
-                          objectFit: "cover", // L'image s'adapte sans déformation
+                          height: "100%", 
+                          objectFit: "cover",
                         }}
                       />
                     </div>
@@ -117,8 +116,8 @@ export default function HomePageCarrousel() {
                       alt={creation.name}
                       sx={{
                         objectFit: "cover",
-                        width: "100%", // Fixe la largeur de l'image
-                        height: "350px", // Fixe la hauteur de l'image
+                        width: "100%",
+                        height: { xs: "200px", sm: "250px", md: "350px" }, // Ajuste la hauteur en fonction de l'écran
                       }}
                     />
                   ) : null}
@@ -127,7 +126,7 @@ export default function HomePageCarrousel() {
                 <Typography
                   className="carrousel-title"
                   fontFamily="Lovers"
-                  fontSize="2.5rem"
+                  fontSize={{ xs: "1.5rem", sm: "2rem", md: "2.5rem" }} // Ajuste la taille du titre
                   color="white"
                 >
                   {creation.name}
