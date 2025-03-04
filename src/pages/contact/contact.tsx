@@ -35,10 +35,10 @@ export default function Contact() {
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!validateForm()) return; // Si la validation échoue, on ne soumet pas le formulaire
 
-    alert("😀 Merci pour votre message, il sera traité au plus vite 😀");
-
+    if (!validateForm()) {
+      return;
+    }
     const templateId = "template_oltfym4";
     const serviceId = "service_vz72zyt";
     const publicKey = "_nibA5A1dNcgUaToq";
@@ -76,7 +76,17 @@ export default function Contact() {
         <Typography variant="h2" align="center" padding="30px" color="white">
           Contactez-moi
         </Typography>
-
+{/* Snackbar positionnée en haut de la page */}
+<Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={() => setOpenSnackbar(false)}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }} // Position de la snackbar en haut
+      >
+        <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%' }}>
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
         <Box display="flex" flexDirection={{ xs: "column", md: "row" }}>
           {/* Texte à gauche */}
           <Box
@@ -245,16 +255,7 @@ export default function Contact() {
         </Box>
       </Container>
 
-      {/* Snackbar pour afficher les messages de succès ou d'erreur */}
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={6000}
-        onClose={() => setOpenSnackbar(false)}
-      >
-        <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%' }}>
-          {snackbarMessage}
-        </Alert>
-      </Snackbar>
+      
     </>
   );
 }
