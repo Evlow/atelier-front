@@ -60,7 +60,8 @@ export default function HomePageCarrousel() {
           gap: "10px",
           paddingBottom: "10px",
           scrollbarWidth: "none", // Masque la barre de défilement pour Firefox
-          msOverflowStyle: "none", // Masque la barre de défilement pour IE et Edge
+          // @ts-expect-error: On ignore le type pour la propriété spécifique à MS
+          "-ms-overflow-style": "none", // Masque la barre de défilement pour IE et Edge
         }}
       >
         {creations.map((creation) => {
@@ -70,7 +71,8 @@ export default function HomePageCarrousel() {
               : null;
 
           const firstImage =
-            Array.isArray(creation.pictureUrls) && creation.pictureUrls.length > 0
+            Array.isArray(creation.pictureUrls) &&
+            creation.pictureUrls.length > 0
               ? creation.pictureUrls[0]
               : null;
 
@@ -87,7 +89,7 @@ export default function HomePageCarrousel() {
                   position: "relative",
                   transition: "transform 0.3s ease",
                   height: "100%",
-                  width: "350px", // Fixe la largeur de chaque carte
+                  width: "300px", // Fixe la largeur de chaque carte
                   "&:hover": {
                     transform: "none",
                   },
@@ -101,7 +103,7 @@ export default function HomePageCarrousel() {
                         controls
                         style={{
                           width: "100%",
-                          height: "350px", // Fixe la hauteur du vidéo
+                          height: "200px", // Fixe la hauteur du vidéo
                           objectFit: "cover", // L'image s'adapte sans déformation
                         }}
                       />
@@ -114,7 +116,7 @@ export default function HomePageCarrousel() {
                       sx={{
                         objectFit: "cover",
                         width: "100%", // Fixe la largeur de l'image
-                        height: "350px", // Fixe la hauteur de l'image
+                        height: "200px", // Fixe la hauteur de l'image
                       }}
                     />
                   ) : null}
@@ -136,7 +138,8 @@ export default function HomePageCarrousel() {
                     transform: "translateY(20px)",
                     transition: "opacity 0.3s ease, transform 0.3s ease",
                     pointerEvents: "none",
-                    "&:hover": {
+                    // Afficher le titre au survol du conteneur parent
+                    ".carousel-card:hover &": {
                       opacity: 1,
                       transform: "translateY(0)",
                     },
