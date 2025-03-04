@@ -55,7 +55,16 @@ const nav = [
   '&.active:before': {
     transform: 'scaleX(1)', // La ligne reste visible quand le lien est actif
     transformOrigin: 'center', // La ligne reste ancrée au centre
-  }
+  },
+   // Enlever l'effet de surlignement sur mobile
+   '@media (max-width: 768px)': {
+    '&:hover:before': {
+      transform: 'scaleX(0)', // Enlever la ligne sous le texte
+    },
+    '&:hover': {
+      color: 'black', // Pas de changement de couleur au survol sur mobile
+    },
+  },
   });
   
 
@@ -107,6 +116,10 @@ export default function NavBar() {
           height: "4px",
           width: "80%",
           marginY: 2,
+           // Masquer le Divider sur mobile
+    '@media (max-width: 768px)': {
+      display: 'none',
+    },
         }}
       />
 
