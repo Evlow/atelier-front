@@ -48,13 +48,14 @@ export default function HomePageCarrousel() {
         sx={{
           textAlign: "left",
           fontSize: { xs: "4rem", md: "6rem" },
+          marginBottom: "20px", // Ajout d'un espacement en bas
         }}
       >
         Les dernières créations
       </Typography>
 
       {/* Conteneur avec défilement horizontal */}
-      <div className="carousel-container">
+      <div className="carousel-container" style={{ display: "flex", overflowX: "auto" }}>
         {creations.map((creation) => {
           const firstVideo =
             Array.isArray(creation.videoUrls) && creation.videoUrls.length > 0
@@ -70,9 +71,17 @@ export default function HomePageCarrousel() {
             <Link
               key={creation.id}
               to={`/creation/${creation.id}`}
-              style={{ textDecoration: "none", flexShrink: 0 }}
+              style={{ textDecoration: "none", flexShrink: 0, marginRight: "15px" }} // Ajout de marge entre les cartes
             >
-              <Card className="carousel-card">
+              <Card
+                className="carousel-card"
+                sx={{
+                  width: { xs: "200px", sm: "250px", md: "300px" }, // Taille dynamique des cartes
+                  height: { xs: "350px", sm: "400px", md: "450px" }, // Taille dynamique des cartes
+                  position: "relative",
+                  boxShadow: 3, // Amélioration de l'ombre de la carte
+                }}
+              >
                 <CardActionArea>
                   {firstVideo ? (
                     <div style={{ position: "relative" }}>
@@ -80,17 +89,18 @@ export default function HomePageCarrousel() {
                         src={firstVideo}
                         controls
                         style={{
-                          width: "350px",
+                          width: "100%",
                           height: "auto",
                           objectFit: "cover",
-                          maxHeight: "400px",
+                          maxHeight: "300px", // Hauteur réduite du vidéo sur mobile
                         }}
                       />
                       <Typography
                         fontFamily="Lovers"
-                        fontSize="2.5rem"
+                        fontSize="1.5rem" // Taille réduite sur mobile
                         color="white"
                         className="carousel-title"
+                        sx={{ position: "absolute", bottom: "10px", left: "10px" }}
                       >
                         {creation.name}
                       </Typography>
@@ -102,16 +112,18 @@ export default function HomePageCarrousel() {
                       alt={creation.name}
                       sx={{
                         objectFit: "cover",
-                        height: { xs: "250px", sm: "300px", md: "400px" },
+                        height: "100%",
+                        maxHeight: "300px", // Hauteur réduite de l'image sur mobile
                       }}
                     />
                   ) : null}
 
                   <Typography
                     fontFamily="Lovers"
-                    fontSize="2.5rem"
+                    fontSize="1.5rem" // Taille réduite sur mobile
                     color="white"
                     className="carousel-title"
+                    sx={{ position: "absolute", bottom: "10px", left: "10px" }}
                   >
                     {creation.name}
                   </Typography>

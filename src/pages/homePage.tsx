@@ -70,43 +70,40 @@ export default function HomePage() {
 
   return (
     <div>
-     <Box
-  sx={{
-    position: "relative", // Ajout de position relative pour gérer le positionnement des éléments à l'intérieur si nécessaire
-    width: { xs: "100%", sm: "100%", md: "80%", lg: "85%" }, // Hauteur dynamique en fonction de la taille de l'écran
-    height: { xs: "200px", sm: "300px", md: "400px", lg: "600px" }, // Hauteur dynamique en fonction de la taille de l'écran
-    overflow: "hidden",  // Empêche l'image de déborder
-    margin: "0 auto",  // Centre l'image horizontalement
-  }}
->
-  <Box
-    component="img"
-    src={atelier}
-    alt="image bannière atelier d'onirium"
-    sx={{
-      width: "100%",
-      height: "100%",
-      objectFit: "cover", // L'image couvre toute la bannière sans être déformée
-    }}
-  />
-</Box>
+      <Box
+        sx={{
+          position: "relative", // Ajout de position relative pour gérer le positionnement des éléments à l'intérieur si nécessaire
+          width: { xs: "100%", sm: "100%", md: "80%", lg: "85%" }, // Hauteur dynamique en fonction de la taille de l'écran
+          height: { xs: "200px", sm: "300px", md: "400px", lg: "600px" }, // Hauteur dynamique en fonction de la taille de l'écran
+          overflow: "hidden", // Empêche l'image de déborder
+          margin: "0 auto", // Centre l'image horizontalement
+        }}
+      >
+        <Box
+          component="img"
+          srcSet={`${atelier}?w=1000&h=500&fit=crop 1000w, ${atelier}?w=600&h=300&fit=crop 600w`}
+          sizes="(max-width: 600px) 600px, 1000px"
+          alt="image bannière atelier d'onirium"
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+      </Box>
 
       {/* Section principale */}
-      <Box
-        component="main"
-        sx={{ width: "80%", margin: "0 auto",  }}
-      >
-       <Typography
-  variant="h2"
-  sx={{
-    textAlign: "center",  // Centrer le texte horizontalement
-    padding: { xs: "10px", sm: "20px", md: "30px" },  // Ajuster le padding en fonction de la taille de l'écran
-    fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem", lg: "5rem" },  // Ajuster la taille du texte en fonction de l'écran
-  }}
->
-  L'Atelier d'Onirium, la création au-delà du réel
-</Typography>
-
+      <Box component="main" sx={{ width: "80%", margin: "0 auto" }}>
+        <Typography
+          variant="h2"
+          sx={{
+            textAlign: "center", // Centrer le texte horizontalement
+            padding: { xs: "10px", sm: "20px", md: "30px" }, // Ajuster le padding en fonction de la taille de l'écran
+            fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem", lg: "5rem" }, // Ajuster la taille du texte en fonction de l'écran
+          }}
+        >
+          L'Atelier d'Onirium, la création au-delà du réel
+        </Typography>
 
         <Stack
           component="article"
@@ -152,79 +149,80 @@ export default function HomePage() {
         </Stack>
       </Box>
 
-    <Box
-      sx={{
-        marginY: "50px", // Ajout de marge en haut et en bas pour l'espace
-        backgroundColor: "#E7E2E1",
-        position: "relative",
-        overflow: "hidden",
-        pt: "30px", // Adding padding-top to avoid overlap with the image
-        pb: "30px", // Adding padding-bottom for spacing
-      }}
-    >
-      {/* Engrenage gauche */}
-      <Box
-        component="img"
-        src={Engrenage1}
-        alt="Engrenage gauche"
-        sx={{
-          position: "absolute", 
-          top: { xs: "-65px", sm: "-120px" }, // Adjust top position for smaller screens
-          left: { xs: "-65px", sm: "-115px" }, // Adjust left position for smaller screens
-          width: { xs: "250px", sm: "450px", md: "550px" }, // Responsive width
-          height: { xs: "300px", sm: "450px", md: "550px" }, // Responsive height
-          opacity: 0.5,
-          transform: "rotate(33deg)", // Optional rotation
-        }}
-      />
-      
-      {/* Contenu central */}
       <Box
         sx={{
-          width: { xs: "100%", sm: "60%", md: "30%" },
-          m: "0 auto",
-          textAlign: "center",
+          marginY: "50px", // Ajout de marge en haut et en bas pour l'espace
+          backgroundColor: "#E7E2E1",
+          position: "relative",
+          overflow: "hidden",
+          pt: "30px", // Adding padding-top to avoid overlap with the image
+          pb: "30px", // Adding padding-bottom for spacing
         }}
       >
-        <Typography
-          variant="h3"
+        {/* Engrenage gauche */}
+        <Box
+          component="img"
+          src={Engrenage1}
+          alt="Engrenage gauche"
           sx={{
-            fontSize: { xs: "4rem", sm: "5rem", md: "6rem" }, // Adjusts the font size based on screen size
-            color: "black",
-            mb: "15px", // Added margin bottom for spacing between title and body text
+            position: "absolute",
+            top: { xs: "-65px", sm: "-120px" }, // Adjust top position for smaller screens
+            left: { xs: "-65px", sm: "-115px" }, // Adjust left position for smaller screens
+            width: { xs: "250px", sm: "450px", md: "550px" }, // Responsive width
+            height: { xs: "300px", sm: "450px", md: "550px" }, // Responsive height
+            opacity: 0.5,
+            transform: "rotate(33deg)", // Optional rotation
+          }}
+        />
+
+        {/* Contenu central */}
+        <Box
+          sx={{
+            width: { xs: "100%", sm: "60%", md: "30%" },
+            m: "0 auto",
+            textAlign: "center",
           }}
         >
-          Ne manquez rien
-        </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              fontSize: { xs: "4rem", sm: "5rem", md: "6rem" }, // Adjusts the font size based on screen size
+              color: "black",
+              mb: "15px", // Added margin bottom for spacing between title and body text
+            }}
+          >
+            Ne manquez rien
+          </Typography>
 
-        <Typography variant="body1" sx={{ padding: "5px", color: "black", mb: "30px" }}>
-          Suivez L'Atelier d'Onirium sur les réseaux sociaux pour plonger dans
-          l'univers de mes créations et ne rien manquer de mes dernières
-          nouveautés !
-        </Typography>
+          <Typography
+            variant="body1"
+            sx={{ padding: "5px", color: "black", mb: "30px" }}
+          >
+            Suivez L'Atelier d'Onirium sur les réseaux sociaux pour plonger dans
+            l'univers de mes créations et ne rien manquer de mes dernières
+            nouveautés !
+          </Typography>
 
-        {/* Composant Social à proximité du texte */}
-        <Social />
+          {/* Composant Social à proximité du texte */}
+          <Social />
+        </Box>
+
+        {/* Engrenage droit */}
+        <Box
+          component="img"
+          src={Engrenage}
+          alt="Engrenage droit"
+          sx={{
+            position: "absolute",
+            bottom: { xs: "-80px", sm: "-115px" }, // Adjust bottom position for smaller screens
+            right: { xs: "-60px", sm: "-115px" }, // Adjust right position for smaller screens
+            width: { xs: "250px", sm: "450px", md: "600px" }, // Make width responsive
+            height: { xs: "300px", sm: "450px", md: "650px" }, // Responsive height
+            opacity: 0.5,
+            transform: "rotate(-60deg)", // Optional rotation
+          }}
+        />
       </Box>
-
-      {/* Engrenage droit */}
-      <Box
-        component="img"
-        src={Engrenage}
-        alt="Engrenage droit"
-        sx={{
-          position: "absolute",
-          bottom: { xs: "-80px", sm: "-115px" }, // Adjust bottom position for smaller screens
-          right: { xs: "-60px", sm: "-115px" }, // Adjust right position for smaller screens
-          width: { xs: "250px", sm: "450px", md: "600px" }, // Make width responsive
-          height: { xs: "300px", sm: "450px", md: "650px" }, // Responsive height
-          opacity: 0.5,
-          transform: "rotate(-60deg)", // Optional rotation
-        }}
-      />
-    </Box>
-
-
 
       {/* Carrousel */}
       <HomePageCarrousel />
@@ -280,7 +278,10 @@ export default function HomePage() {
             <img
               src={creation}
               alt="animatronique"
-              style={{ maxWidth: "80%", height: "auto" }}
+              style={{ maxWidth: "100%", height: "auto", objectFit: "contain" }}
+              srcSet={`${creation}?w=600&h=400 600w, ${creation}?w=1200&h=800 1200w`}
+              sizes="(max-width: 600px) 600px, 1200px"
+              loading="lazy"
             />
           </Box>
 
@@ -322,18 +323,32 @@ export default function HomePage() {
                 component={Link}
                 to="/animatroniques"
                 sx={{
-                  width: { xs: "70%", sm: "25%" }, // Ajuste la taille du bouton sur mobile et bureau
-                  height: 40,
-                  backgroundColor: "#e7e2e1", // Fond bordeaux
-                  borderColor: "#640a02", // Bordure blanche
-                  color: "#640a02", // Texte blanc
-                  fontFamily: "Alice", // Police "Alice"
+                  width: { xs: "70%", sm: "30%" }, // Agrandissement de la taille du bouton sur mobile et bureau
+                  height: 50, // Augmenter la hauteur du bouton
+                  fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
+                  backgroundColor: "#e7e2e1", // Fond beige clair
+                  borderColor: "#640a02", // Bordure bordeaux
+                  color: "#640a02", // Texte bordeaux
+                  fontFamily: "Alice", // Police Alice
                   border: "1px solid", // Ajout d'une bordure
                   margin: "5px",
                   textTransform: "none",
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "center", // Centrer le texte
                   marginTop: "50px",
+                  transition: "all 0.3s ease", // Animation fluide pour les changements
+                  "&:hover": {
+                    transform: "scale(1.1)", // Agrandissement plus important du bouton au survol
+                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Ombre légère pour un effet de profondeur
+                    cursor: "pointer", // Modifier le curseur pour indiquer que le bouton est cliquable
+                  },
+                  "& span": {
+                    transition: "transform 0.3s ease", // Animation fluide pour l'icône
+                  },
+                  "&:hover span": {
+                    transform: "translateX(5px)", // Déplacer légèrement l'icône ">" vers la droite au survol
+                  },
                 }}
               >
                 Découvrir
@@ -404,18 +419,32 @@ export default function HomePage() {
                 component={Link}
                 to="/escape-games"
                 sx={{
-                  width: { xs: "70%", sm: "25%" }, // Ajuste la taille du bouton sur mobile et bureau
-                  height: 40,
-                  backgroundColor: "#e7e2e1", // Fond bordeaux
-                  borderColor: "#640a02", // Bordure blanche
-                  color: "#640a02", // Texte blanc
-                  fontFamily: "Alice", // Police "Alice"
+                  width: { xs: "70%", sm: "30%" }, // Agrandissement de la taille du bouton sur mobile et bureau
+                  height: 50, // Augmenter la hauteur du bouton
+                  fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
+                  backgroundColor: "#e7e2e1", // Fond beige clair
+                  borderColor: "#640a02", // Bordure bordeaux
+                  color: "#640a02", // Texte bordeaux
+                  fontFamily: "Alice", // Police Alice
                   border: "1px solid", // Ajout d'une bordure
                   margin: "5px",
                   textTransform: "none",
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "center", // Centrer le texte
                   marginTop: "50px",
+                  transition: "all 0.3s ease", // Animation fluide pour les changements
+                  "&:hover": {
+                    transform: "scale(1.1)", // Agrandissement plus important du bouton au survol
+                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Ombre légère pour un effet de profondeur
+                    cursor: "pointer", // Modifier le curseur pour indiquer que le bouton est cliquable
+                  },
+                  "& span": {
+                    transition: "transform 0.3s ease", // Animation fluide pour l'icône
+                  },
+                  "&:hover span": {
+                    transform: "translateX(5px)", // Déplacer légèrement l'icône ">" vers la droite au survol
+                  },
                 }}
               >
                 Découvrir
@@ -439,9 +468,13 @@ export default function HomePage() {
               src={escape}
               alt="Escape Games"
               style={{
-                maxWidth: "80%",
+                maxWidth: "100%",
                 height: "auto",
+                objectFit: "contain",
               }}
+              srcSet={`${escape}?w=600&h=400 600w, ${escape}?w=1200&h=800 1200w`}
+              sizes="(max-width: 600px) 600px, 1200px"
+              loading="lazy"
             />
           </Box>
         </Stack>
@@ -533,11 +566,26 @@ export default function HomePage() {
           alignItems="flex-start"
           justifyContent="space-between"
         >
-          <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
+          <Box
+            component="section"
+            sx={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <img
               src={creation}
-              alt="Création unique"
-              style={{ maxWidth: "80%", height: "auto" }}
+              alt="Créations diverses"
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+                objectFit: "contain",
+              }}
+              srcSet={`${creation}?w=600&h=400 600w, ${creation}?w=1200&h=800 1200w`}
+              sizes="(max-width: 600px) 600px, 1200px"
+              loading="lazy"
             />
           </Box>
 
@@ -550,7 +598,7 @@ export default function HomePage() {
                 marginBottom: "20px",
               }}
             >
-              Hologrammes & Mappings{" "}
+              Hologrammes & Mappings
             </Typography>
 
             <Typography variant="body1" sx={{ textAlign: "center" }}>
@@ -577,20 +625,34 @@ export default function HomePage() {
             >
               <Button
                 component={Link}
-                to="/creations-atelier"
+                to="/hologrammes-et-mapping"
                 sx={{
-                  width: { xs: "70%", sm: "25%" }, // Ajuste la taille du bouton sur mobile et bureau
-                  height: 40,
-                  backgroundColor: "#e7e2e1", // Fond bordeaux
-                  borderColor: "#640a02", // Bordure blanche
-                  color: "#640a02", // Texte blanc
-                  fontFamily: "Alice", // Police "Alice"
+                  width: { xs: "70%", sm: "30%" }, // Agrandissement de la taille du bouton sur mobile et bureau
+                  height: 50, // Augmenter la hauteur du bouton
+                  fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
+                  backgroundColor: "#e7e2e1", // Fond beige clair
+                  borderColor: "#640a02", // Bordure bordeaux
+                  color: "#640a02", // Texte bordeaux
+                  fontFamily: "Alice", // Police Alice
                   border: "1px solid", // Ajout d'une bordure
                   margin: "5px",
                   textTransform: "none",
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "center", // Centrer le texte
                   marginTop: "50px",
+                  transition: "all 0.3s ease", // Animation fluide pour les changements
+                  "&:hover": {
+                    transform: "scale(1.1)", // Agrandissement plus important du bouton au survol
+                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Ombre légère pour un effet de profondeur
+                    cursor: "pointer", // Modifier le curseur pour indiquer que le bouton est cliquable
+                  },
+                  "& span": {
+                    transition: "transform 0.3s ease", // Animation fluide pour l'icône
+                  },
+                  "&:hover span": {
+                    transform: "translateX(5px)", // Déplacer légèrement l'icône ">" vers la droite au survol
+                  },
                 }}
               >
                 Découvrir
@@ -622,7 +684,7 @@ export default function HomePage() {
                 marginTop: "20px",
               }}
             >
-              Création diverses{" "}
+              Création diverses
             </Typography>
 
             {/* Texte galerie exposition */}
@@ -657,18 +719,32 @@ export default function HomePage() {
                 component={Link}
                 to="/creations-diverse"
                 sx={{
-                  width: { xs: "70%", sm: "25%" }, // Ajuste la taille du bouton sur mobile et bureau
-                  height: 40,
-                  backgroundColor: "#e7e2e1", // Fond bordeaux
-                  borderColor: "#640a02", // Bordure blanche
-                  color: "#640a02", // Texte blanc
-                  fontFamily: "Alice", // Police "Alice"
+                  width: { xs: "70%", sm: "30%" }, // Agrandissement de la taille du bouton sur mobile et bureau
+                  height: 50, // Augmenter la hauteur du bouton
+                  fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
+                  backgroundColor: "#e7e2e1", // Fond beige clair
+                  borderColor: "#640a02", // Bordure bordeaux
+                  color: "#640a02", // Texte bordeaux
+                  fontFamily: "Alice", // Police Alice
                   border: "1px solid", // Ajout d'une bordure
                   margin: "5px",
                   textTransform: "none",
                   display: "flex",
                   alignItems: "center",
+                  justifyContent: "center", // Centrer le texte
                   marginTop: "50px",
+                  transition: "all 0.3s ease", // Animation fluide pour les changements
+                  "&:hover": {
+                    transform: "scale(1.1)", // Agrandissement plus important du bouton au survol
+                    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Ombre légère pour un effet de profondeur
+                    cursor: "pointer", // Modifier le curseur pour indiquer que le bouton est cliquable
+                  },
+                  "& span": {
+                    transition: "transform 0.3s ease", // Animation fluide pour l'icône
+                  },
+                  "&:hover span": {
+                    transform: "translateX(5px)", // Déplacer légèrement l'icône ">" vers la droite au survol
+                  },
                 }}
               >
                 Découvrir
@@ -689,12 +765,16 @@ export default function HomePage() {
             }}
           >
             <img
-              src={creation}
+              src={escape}
               alt="Créations diverses"
               style={{
-                maxWidth: "80%",
+                maxWidth: "100%",
                 height: "auto",
+                objectFit: "contain",
               }}
+              srcSet={`${escape}?w=600&h=400 600w, ${escape}?w=1200&h=800 1200w`}
+              sizes="(max-width: 600px) 600px, 1200px"
+              loading="lazy"
             />
           </Box>
         </Stack>
