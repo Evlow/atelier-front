@@ -1,0 +1,20 @@
+
+
+/* Style pour le titre de la création qui apparaît au survol */
+.carousel-title {
+    position: absolute;
+    bottom: 0; /* Le titre est collé au bas de la carte */
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
+    text-align: center;
+    opacity: 0; /* Initialement caché */
+    transform: translateY(20px); /* Le titre commence légèrement en bas */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour l'opacité et la translation */
+    pointer-events: none; /* Empêche l'interférence avec l'effet de survol */
+}
+
+.carousel-card:hover .carousel-title {
+    opacity: 1; /* Affiche le titre lorsque la carte est survolée */
+    transform: translateY(0); /* Le titre monte à sa position d'origine */
+}
