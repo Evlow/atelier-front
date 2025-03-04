@@ -32,13 +32,35 @@ export default function Contact() {
     return true;
   };
 
+  // Fonction pour envoyer l'email de confirmation
+  const sendConfirmationEmail = (userFirstName: string, userEmail: string) => {
+    const confirmationTemplateParams = {
+      from_userFirstName: userFirstName,
+      from_userEmail: userEmail,    };
+
+    // Envoi de l'email de confirmation à l'utilisateur
+    emailjs
+      .send(
+        "service_vz72zyt",    // Service ID EmailJS
+        "template_av6thyg", // ID du modèle d'e-mail de confirmation
+        confirmationTemplateParams,  // Paramètres dynamiques (nom, email)
+        "_nibA5A1dNcgUaToq"        // Votre User ID EmailJS
+      )
+      .then((result) => {
+        console.log("Email de confirmation envoyé : ", result.text);
+      })
+      .catch((error) => {
+        console.log("Erreur dans l'envoi de l'email de confirmation : ", error.text);
+      });
+  };
+
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
 
     if (!validateForm()) {
       return;
     }
+
     const templateId = "template_oltfym4";
     const serviceId = "service_vz72zyt";
     const publicKey = "_nibA5A1dNcgUaToq";
@@ -46,11 +68,12 @@ export default function Contact() {
     const templateParams = {
       from_userFirstName: userFirstName,
       from_userLastName: userLastName,
-      from_email: userEmail,
+      from_userEmail: userEmail,
       to_name: "L'Atelier d'Onirium",
       message: userMessage,
     };
 
+    // Envoi du message
     emailjs
       .send(serviceId, templateId, templateParams, publicKey)
       .then(() => {
@@ -61,6 +84,9 @@ export default function Contact() {
         setEmail("");
         setPhone("");
         setMessage("");
+
+        // Envoi de l'email de confirmation à l'utilisateur
+        sendConfirmationEmail(`${userFirstName} ${userLastName}`, userEmail);
       })
       .catch((error) => {
         console.error("Error sending email:", error);
@@ -72,21 +98,21 @@ export default function Contact() {
 
   return (
     <>
-      <Container >
+      <Container>
         <Typography variant="h2" align="center" padding="30px" color="white">
           Contactez-moi
         </Typography>
-{/* Snackbar positionnée en haut de la page */}
-<Snackbar
-        open={openSnackbar}
-        autoHideDuration={6000}
-        onClose={() => setOpenSnackbar(false)}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }} // Position de la snackbar en haut
-      >
-        <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%' }}>
-          {snackbarMessage}
-        </Alert>
-      </Snackbar>
+        {/* Snackbar positionnée en haut de la page */}
+        <Snackbar
+          open={openSnackbar}
+          autoHideDuration={6000}
+          onClose={() => setOpenSnackbar(false)}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }} // Position de la snackbar en haut
+        >
+          <Alert onClose={() => setOpenSnackbar(false)} severity={snackbarSeverity} sx={{ width: '100%' }}>
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
         <Box display="flex" flexDirection={{ xs: "column", md: "row" }}>
           {/* Texte à gauche */}
           <Box
@@ -254,8 +280,6 @@ export default function Contact() {
           </Box>
         </Box>
       </Container>
-
-      
     </>
   );
 }
