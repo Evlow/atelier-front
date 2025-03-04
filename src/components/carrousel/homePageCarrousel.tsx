@@ -60,8 +60,7 @@ export default function HomePageCarrousel() {
           gap: "10px",
           paddingBottom: "10px",
           scrollbarWidth: "none", // Masque la barre de défilement pour Firefox
-           // @ts-expect-error: On ignore le type pour la propriété spécifique à MS
-          "-ms-overflow-style": "none", // Masque la barre de défilement pour IE et Edge
+          msOverflowStyle: "none", // Masque la barre de défilement pour IE et Edge
         }}
       >
         {creations.map((creation) => {
@@ -88,7 +87,7 @@ export default function HomePageCarrousel() {
                   position: "relative",
                   transition: "transform 0.3s ease",
                   height: "100%",
-                  width: "300px", // Fixe la largeur de chaque carte
+                  width: "350px", // Fixe la largeur de chaque carte
                   "&:hover": {
                     transform: "none",
                   },
@@ -102,33 +101,10 @@ export default function HomePageCarrousel() {
                         controls
                         style={{
                           width: "100%",
-                          height: "200px", // Fixe la hauteur du vidéo
+                          height: "350px", // Fixe la hauteur du vidéo
                           objectFit: "cover", // L'image s'adapte sans déformation
                         }}
                       />
-                      <Typography
-                        fontFamily="Lovers"
-                        fontSize="2.5rem"
-                        color="white"
-                        sx={{
-                          position: "absolute",
-                          bottom: 0,
-                          left: 0,
-                          right: 0,
-                          backgroundColor: "rgba(0, 0, 0, 0.6)",
-                          textAlign: "center",
-                          opacity: 0,
-                          transform: "translateY(20px)",
-                          transition: "opacity 0.3s ease, transform 0.3s ease",
-                          pointerEvents: "none",
-                          "&:hover": {
-                            opacity: 1,
-                            transform: "translateY(0)",
-                          },
-                        }}
-                      >
-                        {creation.name}
-                      </Typography>
                     </div>
                   ) : firstImage ? (
                     <CardMedia
@@ -138,35 +114,36 @@ export default function HomePageCarrousel() {
                       sx={{
                         objectFit: "cover",
                         width: "100%", // Fixe la largeur de l'image
-                        height: "200px", // Fixe la hauteur de l'image
+                        height: "350px", // Fixe la hauteur de l'image
                       }}
                     />
                   ) : null}
-
-                  <Typography
-                    fontFamily="Lovers"
-                    fontSize="2.5rem"
-                    color="white"
-                    sx={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      backgroundColor: "rgba(0, 0, 0, 0.6)",
-                      textAlign: "center",
-                      opacity: 0,
-                      transform: "translateY(20px)",
-                      transition: "opacity 0.3s ease, transform 0.3s ease",
-                      pointerEvents: "none",
-                      "&:hover": {
-                        opacity: 1,
-                        transform: "translateY(0)",
-                      },
-                    }}
-                  >
-                    {creation.name}
-                  </Typography>
                 </CardActionArea>
+
+                {/* Titre de la création avec l'effet hover */}
+                <Typography
+                  fontFamily="Lovers"
+                  fontSize="2.5rem"
+                  color="white"
+                  sx={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    backgroundColor: "rgba(0, 0, 0, 0.6)",
+                    textAlign: "center",
+                    opacity: 0,
+                    transform: "translateY(20px)",
+                    transition: "opacity 0.3s ease, transform 0.3s ease",
+                    pointerEvents: "none",
+                    "&:hover": {
+                      opacity: 1,
+                      transform: "translateY(0)",
+                    },
+                  }}
+                >
+                  {creation.name}
+                </Typography>
               </Card>
             </Link>
           );
