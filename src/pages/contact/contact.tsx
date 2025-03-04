@@ -68,6 +68,7 @@ export default function Contact() {
     const templateParams = {
       from_userFirstName: userFirstName,
       from_userLastName: userLastName,
+      from_userPhone: userPhone,
       from_userEmail: userEmail,
       to_name: "L'Atelier d'Onirium",
       message: userMessage,
