@@ -17,57 +17,71 @@ const nav = [
   { title: "Me contacter", path: "/me-contacter" },
 ];
 
-  
-  const StyledNavLink = styled(NavLink)({
+// Styled NavLink avec une meilleure interaction et transition
+const StyledNavLink = styled(NavLink)({
+  textDecoration: 'none',
+  color: 'black',
+  fontSize: '1.3rem',
+  padding: '10px 20px', // Un peu plus d'espace pour un effet de clic plus confortable
+  borderRadius: '6px',
+  position: 'relative',
+  display: 'inline-block',
+  transition: 'all 0.3s ease', // Animation plus rapide
+  '&:hover': {
+    color: '#640a02', // Bordeaux au survol
     textDecoration: 'none',
-    color: 'black',
-    fontSize: '1.3rem',
-    padding: '4px 20px',
-    borderRadius: '6px',
-    position: 'relative',
-    display: 'inline-block',
-    transition: 'all 0.6s ease-in-out',
-    '&:hover': {
-      color: '#640a02', // Bordeaux au survol
-      textDecoration: 'none',
-    },
-    '&:before': {
-      content: "''",
-      position: 'absolute',
-      left: '0',
-      right: '0',
-      bottom: '0',
-      height: '3px',
-      backgroundColor: '#640a02', // Ligne en bas du lien
-      transform: 'scaleX(0)', // Au départ, la ligne est invisible
-      transformOrigin: 'center', // Commencer l'animation au centre
-      transition: 'transform 0.25s ease-out',
-    },
-    '&:hover:before': {
-      transform: 'scaleX(1)', // La ligne s'étend lorsque l'on survole
-      transformOrigin: 'center', // L'extension commence au centre
-    },
-     // Classe pour l'état actif
+    transform: 'scale(1.05)', // Légère agrandissement au survol pour donner un effet dynamique
+  },
+  '&:before': {
+    content: "''",
+    position: 'absolute',
+    left: '0',
+    right: '0',
+    bottom: '0',
+    height: '3px',
+    backgroundColor: '#640a02',
+    transform: 'scaleX(0)',
+    transformOrigin: 'center',
+    transition: 'transform 0.25s ease-out',
+  },
+  '&:hover:before': {
+    transform: 'scaleX(1)', // La ligne s'étend lors du survol
+  },
   '&.active': {
     color: '#640a02', // Bordeaux quand le lien est actif
-    textDecoration: 'none', // Pas de soulignement
+    textDecoration: 'none',
   },
   '&.active:before': {
-    transform: 'scaleX(1)', // La ligne reste visible quand le lien est actif
-    transformOrigin: 'center', // La ligne reste ancrée au centre
+    transform: 'scaleX(1)',
+    transformOrigin: 'center',
   },
-   // Enlever l'effet de surlignement sur mobile
-   '@media (max-width: 768px)': {
+  // Effet responsive pour mobile
+  '@media (max-width: 768px)': {
+    padding: '8px 15px', // Réduit un peu la taille des boutons sur mobile
     '&:hover:before': {
-      transform: 'scaleX(0)', // Enlever la ligne sous le texte
     },
     '&:hover': {
-      color: 'black', // Pas de changement de couleur au survol sur mobile
+      color: 'black',
     },
   },
-  });
-  
+});
 
+// Styles pour les éléments <li>
+const StyledListItem = styled('li')({
+  padding: '10px 20px', // Plus d'espace autour de chaque élément de la liste
+  fontSize: '1.3rem',
+  whiteSpace: 'nowrap',
+  textShadow: "1px 1px 4px rgba(0, 0, 0, 0.3)",
+
+  display: 'inline-block',
+  transition: 'transform 0.2s ease-in-out', // Animation légère
+  '&:hover': {
+    transform: 'translateY(-3px)', // Légère élévation au survol
+  },
+  '@media (max-width: 768px)': {
+    padding: '12px 16px', // Ajuste pour les petits écrans
+  },
+});
 
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -79,9 +93,10 @@ export default function NavBar() {
     <AppBar
       position="static"
       sx={{
+        
+        paddingTop: { xs: "10px", sm: "20px" },
+        paddingBottom: { xs: "5px", sm: "15px" },
         backgroundColor: "#e7e2e1",
-        paddingTop: { xs: "20px", sm: "30px" },
-        paddingBottom: { xs: "10px", sm: "30px" },
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -101,7 +116,7 @@ export default function NavBar() {
           sx={{
             flexGrow: 1,
             textAlign: "center",
-            fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem", lg: "5rem" },
+            
           }}
         >
           L'Atelier d'Onirium
@@ -115,11 +130,10 @@ export default function NavBar() {
           border: 0,
           height: "4px",
           width: "80%",
-          marginY: 2,
-           // Masquer le Divider sur mobile
-    '@media (max-width: 768px)': {
-      display: 'none',
-    },
+          // Masquer le Divider sur mobile
+          '@media (max-width: 768px)': {
+            display: 'none',
+          },
         }}
       />
 
@@ -205,18 +219,11 @@ export default function NavBar() {
             }}
           >
             {nav.map((item) => (
-              <li
-                key={item.path}
-                style={{
-                  padding: "20px",
-                  fontSize: "1.3rem",
-                  whiteSpace: "nowrap",
-                }}
-              >
+              <StyledListItem key={item.path}>
                 <StyledNavLink to={item.path}>
                   {item.title}
                 </StyledNavLink>
-              </li>
+              </StyledListItem>
             ))}
           </ul>
         </Box>

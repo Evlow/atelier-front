@@ -6,13 +6,10 @@ import {
   Avatar,
   List,
   ListItem,
-  CardContent,
-  Card,
 } from "@mui/material";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import Home from "../assets/home.jpg";
-import Arabesque1 from "../assets/Arabesque1.svg";
-import Arabesque2 from "../assets/Arabesque2.svg";
+// import Arabesque1 from "../assets/Arabesque1.svg";
+// import Arabesque2 from "../assets/Arabesque2.svg";
 import Engrenage from "../assets/engrenage.svg";
 import Engrenage1 from "../assets/engrenage1.svg";
 import LogoInsta from "../assets/logo-insta.png";
@@ -29,38 +26,39 @@ import {
   Lightbulb,
 } from "@mui/icons-material";
 import Social from "../components/social/social";
+import Features from "../components/features/features";
 
 export default function HomePage() {
   const features = [
     {
-      title: "Créations uniques & sur-mesure",
+      title: "Créations sur-mesure",
       description:
         "Chaque pièce est pensée et fabriquée selon vos envies, pour un résultat personnalisé.",
-      icon: <Brush fontSize="large" sx={{ color: "#8B0000" }} />,
+      icon: <Brush sx={{ color: "#8B0000", fontSize: "40px" }} />,
     },
     {
-      title: "Immersion Totale",
+      title: "Immersion totale",
       description:
         "Escape games, animatroniques et hologrammes pour des expériences captivantes et inoubliables.",
-      icon: <Visibility fontSize="large" sx={{ color: "#8B0000" }} />,
+      icon: <Visibility sx={{ color: "#8B0000", fontSize: "40px" }} />,
     },
     {
-      title: "Qualité & Finitions Haut de Gamme",
+      title: "Qualité haut de gamme",
       description:
         "Un travail minutieux avec des matériaux et des techniques de pointe pour un rendu exceptionnel.",
-      icon: <Star fontSize="large" sx={{ color: "#8B0000" }} />,
+      icon: <Star sx={{ color: "#8B0000", fontSize: "40px" }} />,
     },
     {
-      title: "Accompagnement & Conseil",
+      title: "Accompagnement",
       description:
         "Je vous guide et vous conseille à chaque étape pour transformer vos idées en réalité.",
-      icon: <Support fontSize="large" sx={{ color: "#8B0000" }} />,
+      icon: <Support sx={{ color: "#8B0000", fontSize: "40px" }} />,
     },
     {
-      title: "Impact Visuel Fort",
+      title: "Impact visuel fort",
       description:
         "Des créations qui attirent le regard et marquent les esprits, idéales pour vos événements et espaces.",
-      icon: <Lightbulb fontSize="large" sx={{ color: "#8B0000" }} />,
+      icon: <Lightbulb sx={{ color: "#8B0000", fontSize: "40px" }} />,
     },
   ];
 
@@ -70,39 +68,131 @@ export default function HomePage() {
 
   return (
     <div>
-      <Box
+<Box
+  sx={{
+    position: "relative", // Positionnement relatif pour le conteneur
+    width: "100%", // Largeur du conteneur à 100%
+
+    height: { xs: "auto", sm: "300px", md: "400px", lg: "800px" }, // Hauteur dynamique en fonction de l'écran
+    display: "flex", // Utilisation de Flexbox pour la disposition
+    flexDirection: { xs: "column", sm: "row" }, // Sur mobile (xs), l'image et le texte sont empilés, sur desktop (sm et plus), l'image est à gauche et le texte à droite
+    justifyContent: "center", // Centrer le contenu
+    alignItems: "center", // Alignement des éléments
+  }}
+>
+  {/* Partie image */}
+  <Box
+    component="img"
+    srcSet={`${atelier}?w=1000&h=500&fit=crop 1000w, ${atelier}?w=600&h=300&fit=crop 600w`}
+    sizes="(max-width: 600px) 600px, 1000px"
+    alt="image bannière atelier d'onirium"
+    sx={{
+      width: "100%", // L'image prend toute la largeur
+      height: { xs: "auto", sm: "100%" }, // Hauteur ajustée pour mobile et desktop
+      objectFit: "cover", // L'image couvre l'espace sans déformation
+      position: { xs: "relative", sm: "absolute" }, // Sur mobile, on utilise "relative" pour que l'image reste dans le flux de la page
+      top: { xs: "0", sm: "0" }, // Position verticale ajustée pour chaque taille d'écran
+      left: { xs: "0", sm: "0" }, // Position horizontale ajustée
+    }}
+  />
+
+  {/* Partie texte */}
+  <Box
+    sx={{
+      position: { xs: "relative", sm: "absolute" }, // Sur mobile, texte reste dans le flux normal, sinon il est absolu
+      top: { xs: "auto", sm: "50%" }, // Sur mobile, on n'utilise pas de "top" pour le texte, sur desktop, centré verticalement
+      left: { xs: "0", sm: "20px" }, // Espace à gauche pour le texte sur desktop
+      transform: { xs: "none", sm: "translateY(-50%)" }, // Centrer verticalement sur desktop
+      color: "white", // Couleur du texte
+      zIndex: 1, // Texte au-dessus de l'image
+      padding: { xs: "20px", sm: "30px" }, // Espacement dynamique
+    }}
+  >
+    <Typography
+      variant="h2"
+      sx={{
+                textAlign: { xs: "center", sm: "center", md: "justify" },
+
+        textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
+        width: { xs: "100%", sm: "100%" }, // Largeur du texte ajustée
+        paddingY: { xs: "5px", sm: "10px", md: "30px" },
+        fontSize: { xs: "3rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
+      }}
+    >
+      Votre imagination n’a pas de limites… <br />Mes créations non plus !
+    </Typography>
+
+    <Typography
+      variant="body1"
+      sx={{
+        width: { xs: "100%", sm: "45%", md:"45%" }, // Largeur du texte ajustée
+marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
+        textAlign: "justify", // Justification du texte
+      }}
+    >
+      Vous êtes une entreprise à la recherche de créations
+      personnalisées pour vos événements ou vos bureaux ? <br />
+      Vous êtes un particulier et souhaitez transformer votre intérieur
+      avec des objets uniques ? <br />
+      Vous êtes un organisateur d'événements et avez besoin d'un décor
+      immersif et original ? <br />
+      <br />
+      Vous êtes au bon endroit !
+    </Typography>
+
+    {/* Bouton */}
+    <Box>
+      <Button
+        component={Link}
+        to="/me-contacter"
         sx={{
-          position: "relative", // Ajout de position relative pour gérer le positionnement des éléments à l'intérieur si nécessaire
-          width: { xs: "100%", sm: "100%", md: "80%", lg: "85%" }, // Hauteur dynamique en fonction de la taille de l'écran
-          height: { xs: "200px", sm: "300px", md: "400px", lg: "600px" }, // Hauteur dynamique en fonction de la taille de l'écran
-          overflow: "hidden", // Empêche l'image de déborder
-          margin: "0 auto", // Centre l'image horizontalement
+          width: { xs: "60%", sm: "40%", md: "30%" }, // Taille du bouton ajustée pour mobile et bureau
+          height: 50,
+          fontSize: { xs: "16px", sm: "1.5rem", md: "1.6rem" },
+          backgroundColor: "#e7e2e1",
+          borderColor: "#640a02",
+          color: "#640a02",
+          fontFamily: "Alice",
+          border: "1px solid",
+          margin: "5px",
+          textTransform: "none",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: "30px", // Espacement entre le texte et le bouton
+          transition: "all 0.3s ease",
+          "&:hover": {
+            transform: "scale(1.1)",
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+            cursor: "pointer",
+          },
         }}
       >
-        <Box
-          component="img"
-          srcSet={`${atelier}?w=1000&h=500&fit=crop 1000w, ${atelier}?w=600&h=300&fit=crop 600w`}
-          sizes="(max-width: 600px) 600px, 1000px"
-          alt="image bannière atelier d'onirium"
-          sx={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
-      </Box>
+        Me contacter
+        <span style={{ color: "#640a02", marginLeft: "5px" }}>&gt;</span>
+      </Button>
+    </Box>
+  </Box>
+</Box>
+
+
+
 
       {/* Section principale */}
       <Box component="main" sx={{ width: "80%", margin: "0 auto" }}>
+        {/* Section Appel à l'Action */}
+  
+
+        {/* Section Qui suis-je */}
         <Typography
           variant="h2"
           sx={{
-            textAlign: "center", // Centrer le texte horizontalement
-            padding: { xs: "10px", sm: "20px", md: "30px" }, // Ajuster le padding en fonction de la taille de l'écran
-            fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem", lg: "5rem" }, // Ajuster la taille du texte en fonction de l'écran
+            paddingY: { xs: "20px", sm: "30px", md: "40px" },
+            textAlign: "center",
+            textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
           }}
         >
-          L'Atelier d'Onirium, la création au-delà du réel
+          Qui suis-je ?
         </Typography>
 
         <Stack
@@ -112,40 +202,45 @@ export default function HomePage() {
           alignItems="center"
           justifyContent="space-between"
         >
-          <Typography variant="body1" sx={{ flex: 1, textAlign: "justify" }}>
-            L'Atelier d'Onirium est avant tout un lieu où l'imagination prend
-            vie à travers des projets variés et originaux. Mon approche repose
-            sur un mélange d'artisanat traditionnel et de technologies modernes
-            pour créer des expériences qui marquent les esprits.
-            <br />
-            <br />
-            En tant qu'artiste polyvalente, je m'adapte à chaque projet avec une
-            attention particulière aux détails, que ce soit pour des escape
-            games immersifs où les joueurs vivent des aventures uniques, des
-            animatroniques réalistes qui ajoutent une dimension vivante à des
-            décors, ou encore des objets en bois gravés et découpés qui
-            apportent une touche personnelle à votre intérieur.
-            <br />
-            <br />
-            Mon univers est atypique, influencé par le fantastique, et j'aime
-            repousser les limites de ce qui est possible. Chaque création, qu'il
-            s'agisse de décors grandeur nature, d'impressions 3D, ou d'éléments
-            sur mesure comme des mugs personnalisés, est conçue pour sortir de
-            l'ordinaire et offrir une expérience visuelle et sensorielle unique.
-            <br />
-            <br />
-            Mon objectif est de vous inviter à rêver, à explorer des mondes
-            nouveaux, tout en redéfinissant les codes de la créativité et de
-            l'innovation.
-          </Typography>
+          {/* Image à gauche sur desktop, en haut sur mobile */}
+          <Box
+            sx={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          ></Box>
 
-          <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
-            <img
-              src={Home}
-              alt="L'Atelier d'Onirium"
-              style={{ maxWidth: "80%", height: "auto" }}
-            />
-          </Box>
+          {/* Texte à droite sur desktop, en bas sur mobile */}
+          <Typography variant="body1" sx={{ textAlign: "justify" }}>
+            Depuis toujours, j'ai cette passion de créer, qu’il s’agisse
+            d’objets, de décors ou d’expériences. La création a toujours été
+            pour moi un moyen d’exprimer mon imagination et d’explorer de
+            nouvelles possibilités.
+            <br />
+            <br />
+            Aujourd’hui, mon objectif est de vous faire <strong>rêver</strong>,
+            d’explorer de nouveaux horizons et de redéfinir les frontières de la
+            créativité et de l’innovation. Mon approche repose sur un mélange d'
+            <strong>artisanat traditionnel</strong> et de{" "}
+            <strong>technologies modernes</strong>, afin de créer des
+            expériences qui marquent les esprits.
+            <br />
+            <br />
+            En tant qu'<strong>artiste polyvalente</strong>, je m'adapte à
+            chaque projet avec une attention particulière aux détails. Que ce
+            soit pour des <strong>escape games immersifs</strong>, des{" "}
+            <strong>animatroniques réalistes</strong> qui donnent vie aux
+            décors, ou des <strong>objets en bois gravés et découpés</strong>,
+            chaque création est unique et personnalisée.
+            <br />
+            <br />
+            Je propose également des <strong>créations sur mesure</strong> pour
+            les entreprises, les événements et les particuliers. Mon but ?
+            Transformer vos idées en réalité et vous offrir une expérience
+            mémorable !
+          </Typography>
         </Stack>
       </Box>
 
@@ -155,8 +250,8 @@ export default function HomePage() {
           backgroundColor: "#E7E2E1",
           position: "relative",
           overflow: "hidden",
-          pt: "30px", // Adding padding-top to avoid overlap with the image
-          pb: "30px", // Adding padding-bottom for spacing
+          pt: "50px", // Adding padding-top to avoid overlap with the image
+          pb: "50px", // Adding padding-bottom for spacing
         }}
       >
         {/* Engrenage gauche */}
@@ -178,17 +273,15 @@ export default function HomePage() {
         {/* Contenu central */}
         <Box
           sx={{
-            width: { xs: "100%", sm: "60%", md: "30%" },
+            width: { xs: "%", sm: "50%", md: "25%" },
             m: "0 auto",
             textAlign: "center",
           }}
         >
           <Typography
-            variant="h3"
+            variant="h2"
             sx={{
-              fontSize: { xs: "4rem", sm: "5rem", md: "6rem" }, // Adjusts the font size based on screen size
               color: "black",
-              mb: "15px", // Added margin bottom for spacing between title and body text
             }}
           >
             Ne manquez rien
@@ -196,7 +289,11 @@ export default function HomePage() {
 
           <Typography
             variant="body1"
-            sx={{ padding: "5px", color: "black", mb: "30px" }}
+            sx={{
+              color: "black",
+              mb: "30px",
+              textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+            }}
           >
             Suivez L'Atelier d'Onirium sur les réseaux sociaux pour plonger dans
             l'univers de mes créations et ne rien manquer de mes dernières
@@ -227,7 +324,7 @@ export default function HomePage() {
       {/* Carrousel */}
       <HomePageCarrousel />
       {/* Citation */}
-      <Stack
+      {/* <Stack
         component="article"
         justifyContent="center"
         alignItems="center"
@@ -264,9 +361,9 @@ export default function HomePage() {
             }}
           />
         </Box>
-      </Stack>
+      </Stack> */}
 
-      <Box component="main" sx={{ width: "90%", margin: "0 auto", mt: 4 }}>
+      <Box component="main" sx={{ width: "80%", margin: "0 auto", mt: 4 }}>
         <Stack
           component="article"
           direction={{ xs: "column", md: "row" }}
@@ -290,14 +387,14 @@ export default function HomePage() {
               variant="h2"
               sx={{
                 textAlign: "center",
-                fontSize: { xs: "3rem", md: "4rem" },
                 marginBottom: "20px",
+                textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
               }}
             >
               Animatroniques
             </Typography>
 
-            <Typography variant="body1" sx={{ textAlign: "center" }}>
+            <Typography variant="body1" sx={{ textAlign: "justify" }}>
               Les animatroniques sont des créations robotiques qui reproduisent
               des mouvements réalistes, souvent utilisés pour simuler des
               animaux, des peluches, des personnages, ou même des créatures
@@ -373,9 +470,9 @@ export default function HomePage() {
               variant="h2"
               sx={{
                 textAlign: "center",
-                fontSize: { xs: "3rem", md: "4rem" },
                 marginBottom: "20px",
                 marginTop: "20px",
+                textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
               }}
             >
               Escape Games
@@ -385,7 +482,7 @@ export default function HomePage() {
               component="section"
               variant="body1"
               sx={{
-                textAlign: "center",
+                textAlign: "justify",
               }}
             >
               Dark Hypercube Experience est un projet nomade qui représente une
@@ -479,86 +576,7 @@ export default function HomePage() {
           </Box>
         </Stack>
 
-        <Box
-          sx={{
-            margin: "60px auto",
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: 3,
-          }}
-        >
-          {features.map((feature, index) => (
-            <Box
-              key={index}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                flex: "1 1 230px", // Largeur flexible avec max de 280px
-                maxWidth: "230px",
-                minWidth: "200px", // Pour éviter trop de rétrécissement
-              }}
-            >
-              <Card
-                sx={{
-                  boxSizing: "border-box",
-                  textAlign: "center",
-                  width: "100%",
-                  height: "auto",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-start",
-                  alignItems: "center",
-                  background: "#E7E2E1",
-                  paddingY: 2,
-                  transition: "transform 0.3s ease-in-out",
-                  "&:hover": { transform: "scale(1.05)" },
-                }}
-              >
-                <CardContent
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "flex-start",
-                    p: 1.25,
-                    height: "auto",
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      mb: 2,
-                    }}
-                  >
-                    {feature.icon}
-                    <Typography
-                      variant="h3"
-                      sx={{
-                        marginTop: 1,
-                        fontSize: {
-                          xs: "2rem",
-                          sm: "2.5rem",
-                          md: "2.5rem",
-                          lg: "2.5rem",
-                        },
-                        color: "black",
-                      }}
-                    >
-                      {feature.title}
-                    </Typography>
-                  </Box>
-
-                  <Typography variant="body2" sx={{ textAlign: "center" }}>
-                    {feature.description}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-          ))}
-        </Box>
+        <Features features={features} />
         <Stack
           component="article"
           direction={{ xs: "column", md: "row" }}
@@ -594,26 +612,28 @@ export default function HomePage() {
               variant="h2"
               sx={{
                 textAlign: "center",
-                fontSize: { xs: "3rem", md: "4rem" },
                 marginBottom: "20px",
+                textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
               }}
             >
               Hologrammes & Mappings
             </Typography>
 
-            <Typography variant="body1" sx={{ textAlign: "center" }}>
-              Les animatroniques sont des créations robotiques qui reproduisent
-              des mouvements réalistes, souvent utilisés pour simuler des
-              animaux, des peluches, des personnages, ou même des créatures
-              fantastiques. <br /> <br />
-              Grâce à des moteurs et des modules sonores sophistiqués, elles
-              offrent une expérience immersive captivante dans divers
-              environnements (escape-game, évenementiel, cinéma, parcs
-              d’attraction, discothèque, etc. ). <br />
+            <Typography variant="body1" sx={{ textAlign: "justify" }}>
+              Les hologrammes et les technologies de mapping révolutionnent la
+              perception de l’espace et de l’image. <br />
+              Grâce à ces solutions innovantes, chaque environnement peut se
+              transformer en une expérience immersive et spectaculaire, adaptée
+              à divers événements et scénarios. <br />
               <br />
-              En tant que créatrice d'animatroniques, je mets à profit des
-              technologies avancées pour donner vie à des créations uniques,
-              qu'elles soient inspirées du réel ou du fantastique.
+              En synchronisant les projections visuelles avec l’architecture ou
+              des objets, ces technologies métamorphosent les espaces et créent
+              des univers fascinants, offrant ainsi une immersion unique. <br />
+              <br />
+              Elles ouvrent un champ infini de possibilités pour captiver et
+              surprendre le public. Adaptées aussi bien aux spectacles qu’aux
+              événements professionnels, elles apportent une dimension innovante
+              et émotionnelle à chaque projet.
             </Typography>
             <Box
               sx={{
@@ -679,9 +699,9 @@ export default function HomePage() {
               variant="h2"
               sx={{
                 textAlign: "center",
-                fontSize: { xs: "3rem", md: "4rem" },
                 marginBottom: "20px",
                 marginTop: "20px",
+                textShadow: "2px 2px 6px rgba(255, 255, 255, 0.6)",
               }}
             >
               Création diverses
@@ -692,7 +712,7 @@ export default function HomePage() {
               component="section"
               variant="body1"
               sx={{
-                textAlign: "center",
+                textAlign: "justify",
               }}
             >
               Mon univers est atypique, influencé par le fantastique, et j'aime
@@ -786,9 +806,9 @@ export default function HomePage() {
           variant="h2"
           sx={{
             textAlign: "center",
-            fontSize: { xs: "3rem", md: "4rem" },
             marginBottom: "20px",
             marginTop: "20px",
+            textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
           }}
         >
           Instagram
@@ -827,7 +847,7 @@ export default function HomePage() {
             }}
           >
             <Box>
-              <Typography variant="h5">latelierdonirium</Typography>
+              <Typography variant="body1">latelierdonirium</Typography>
               {/* Statistiques en row */}
               <Box
                 sx={{
@@ -846,20 +866,37 @@ export default function HomePage() {
 
             {/* Bouton "S'abonner" */}
             <Button
-              variant="contained"
               startIcon={<InstagramIcon />}
               href="https://www.instagram.com/latelierdonirium/"
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                height: 40,
-                backgroundColor: "#e7e2e1", // Fond bordeaux
+                width: { xs: "50%", sm: "15%" }, // Agrandissement de la taille du bouton sur mobile et bureau
+                height: 50, // Augmenter la hauteur du bouton
+                fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
+                backgroundColor: "#e7e2e1", // Fond beige clair
                 borderColor: "#640a02", // Bordure bordeaux
                 color: "#640a02", // Texte bordeaux
-                fontFamily: "Alice", // Police "Alice"
-                border: "1px solid", // Bordure
-                textTransform: "none", // Pas de transformation du texte
-                marginTop: { xs: 2, md: 0 }, // Espacement en fonction de l'écran
+                fontFamily: "Alice", // Police Alice
+                border: "1px solid", // Ajout d'une bordure
+                margin: "5px",
+                textTransform: "none",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center", // Centrer le texte
+                marginTop: "50px",
+                transition: "all 0.3s ease", // Animation fluide pour les changements
+                "&:hover": {
+                  transform: "scale(1.1)", // Agrandissement plus important du bouton au survol
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)", // Ombre légère pour un effet de profondeur
+                  cursor: "pointer", // Modifier le curseur pour indiquer que le bouton est cliquable
+                },
+                "& span": {
+                  transition: "transform 0.3s ease", // Animation fluide pour l'icône
+                },
+                "&:hover span": {
+                  transform: "translateX(5px)", // Déplacer légèrement l'icône ">" vers la droite au survol
+                },
               }}
             >
               S'abonner

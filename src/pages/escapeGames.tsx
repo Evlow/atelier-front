@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { Creation } from "../models/creation";
 import CreationList from "../creations/creationList";
 import escape from "../assets/banniere-escape.jpg";
-import { Box, Card, CardContent, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
 import AccessibilityIcon from "@mui/icons-material/Accessibility";
 import GroupWorkIcon from "@mui/icons-material/GroupWork";
+import Features from "../components/features/features"; 
+
 
 export default function EscapeGames() {
   const [creations, setCreations] = useState<Creation[]>([]);
@@ -23,31 +25,35 @@ export default function EscapeGames() {
 
   const features = [
     {
-      icon: <EventAvailableIcon fontSize="large" sx={{ color: "#8B0000" }} />,
+      icon: <EventAvailableIcon sx={{ color: "#8B0000", fontSize:"40px"}} />,
       title: "Privatisable",
-      description: "Réservez pour vos événements privés, team building ou séminaires et offrez une expérience mémorable.",
+      description:
+        "Réservez pour vos événements privés, team building ou séminaires et offrez une expérience mémorable.",
     },
     {
-      icon: <TheaterComedyIcon fontSize="large" sx={{ color: "#8B0000" }} />,
+      icon: <TheaterComedyIcon fontSize="large" sx={{ color: "#8B0000", fontSize:"40px" }} />,
       title: "Immersion totale",
-      description: "Plongez dans un univers captivant, où chaque détail vous transporte dans une expérience unique.",
+      description:
+        "Plongez dans un univers captivant, où chaque détail vous transporte dans une expérience unique.",
     },
 
     {
-      icon: <AccessibilityIcon fontSize="large" sx={{ color: "#8B0000" }} />,
+      icon: <AccessibilityIcon fontSize="large" sx={{ color: "#8B0000", fontSize:"40px" }} />,
       title: "Accessible à Tous",
-      description: "Conçu pour être entièrement accessible et inclusif, permettant à chacun de participer pleinement.",
+      description:
+        "Conçu pour être entièrement accessible et inclusif, permettant à chacun de participer pleinement.",
     },
     {
-      icon: <DirectionsCarIcon fontSize="large" sx={{ color: "#8B0000" }} />,
-      title: "Mobile",
+      icon: <DirectionsCarIcon fontSize="large" sx={{ color: "#8B0000", fontSize:"40px" }} />,
+      title: "Mobilité",
       description:
         "Une expérience mobile qui se déplace pour offrir des moments uniques directement sur vos lieux d’événements.",
     },
     {
-      icon: <GroupWorkIcon fontSize="large" sx={{ color: "#8B0000" }} />,
+      icon: <GroupWorkIcon fontSize="large" sx={{ color: "#8B0000", fontSize:"40px" }} />,
       title: "Expérience collective",
-      description: "Collaborez en équipe pour résoudre des énigmes et faire avancer l’aventure ensemble.",
+      description:
+        "Collaborez en équipe pour résoudre des énigmes et faire avancer l’aventure ensemble.",
     },
   ];
 
@@ -95,81 +101,16 @@ export default function EscapeGames() {
           où la technologie et l’imaginaire se confondent. Grâce à des
           technologies avancées et un mécanisme central novateur, l’expérience
           évolue au fur et à mesure de votre progression, vous offrant des
-          rebondissements et des défis inédits. <br/>
+          rebondissements et des défis inédits. <br />
           La Dark Hypercube Experience se veut inclusive et accessible à tous,
-          sans exception. L’expérience est pensée pour être
-          pleinement accessible, avec des dispositifs permettant une
-          participation active des personnes en situation de handicap,
-          garantissant ainsi une aventure excitante et épanouissante pour chaque
-          participant.
+          sans exception. L’expérience est pensée pour être pleinement
+          accessible, avec des dispositifs permettant une participation active
+          des personnes en situation de handicap, garantissant ainsi une
+          aventure excitante et épanouissante pour chaque participant.
         </Typography>
       </Box>
 
-      <Box sx={{  margin: "60px auto", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 3 }}>
-  {features.map((feature, index) => (
-    <Box
-      key={index}
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        flex: "1 1 230px", // Largeur flexible avec max de 280px
-        maxWidth: "230px",
-        minWidth: "200px", // Pour éviter trop de rétrécissement
-      }}
-    >
-      <Card
-        sx={{
-          boxSizing: "border-box",
-          textAlign: "center",
-          width: "100%",
-          height: "auto",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "flex-start",
-          alignItems: "center",
-          background: "#E7E2E1",
-          paddingY: 2,
-          transition: "transform 0.3s ease-in-out",
-          "&:hover": { transform: "scale(1.05)" },
-        }}
-      >
-        <CardContent
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "flex-start",
-            p: 1.25, // Remplace `padding: "10px !important"`
-            height: "auto",
-          }}
-        >
-          <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 2 }}>
-            {feature.icon}
-            <Typography
-              variant="h3"
-              sx={{
-                marginTop: 1,
-                fontSize: {
-                  xs: "2rem",
-                  sm: "2.5rem",
-                  md: "2.5rem",
-                  lg: "2.5rem",
-                },
-                color: "black",
-              }}
-            >
-              {feature.title}
-            </Typography>
-          </Box>
-
-          <Typography variant="body2" sx={{ textAlign: "center" }}>
-            {feature.description}
-          </Typography>
-        </CardContent>
-      </Card>
-    </Box>
-  ))}
-</Box>
+       <Features features={features} />
 
 
       <Box sx={{ width: "80%", margin: "40px auto", textAlign: "justify" }}>

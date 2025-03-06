@@ -126,7 +126,7 @@ export default function HomePageCarrousel() {
                 <Typography
                   className="carrousel-title"
                   fontFamily="Lovers"
-                  fontSize={{ xs: "1.5rem", sm: "2rem", md: "2.5rem" }} // Ajuste la taille du titre
+                  fontSize="2rem" // Ajuste la taille du titre
                   color="white"
                 >
                   {creation.name}

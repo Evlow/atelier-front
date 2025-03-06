@@ -113,7 +113,8 @@ export default function Contact() {
   return (
     <>
       <Container>
-        <Typography variant="h2" align="center" padding="30px">
+        <Typography variant="h2" align="center" padding="30px" sx={{ textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)" }}
+        >
           Contactez-moi
         </Typography>
         {/* Snackbar positionnée en haut de la page */}
@@ -143,7 +144,6 @@ export default function Contact() {
                 textAlign: "center",
                 alignSelf: "center",
                 marginBottom: 5, // Espace entre les paragraphes
-                lineHeight: 1.8, // Ajuste la hauteur de ligne pour améliorer la lisibilité
                 paddingBottom: "20px",
               }}
             >
