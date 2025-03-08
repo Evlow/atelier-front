@@ -81,7 +81,6 @@ export default function Animatronics() {
               component="section"
               variant="body1"
               sx={{
-                width: "50%",
                 textAlign: "left",
               }}
             >
@@ -244,7 +243,7 @@ export default function Animatronics() {
             }}
           >
             <video
-              autoPlay
+              // autoPlay
               muted
               loop
               style={{

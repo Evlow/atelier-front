@@ -169,7 +169,7 @@ export default function HomePage() {
                 margin:  { xs: "0 auto", sm: 0, md: 0 }, 
                 marginY:  { xs: "20px", sm: 0, md: 0 }, 
 
-                width: { xs: "30%", sm: "40%", md: "25%" }, // Taille du bouton ajustée pour mobile et bureau
+                width: { xs: "50%", sm: "40%", md: "25%" }, // Taille du bouton ajustée pour mobile et bureau
                 height: 50,
                 fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
                 backgroundColor: "#e7e2e1",
