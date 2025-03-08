@@ -87,7 +87,7 @@ export default function EscapeGames() {
         </Box>
       </Box>
 
-      <Box sx={{ width: "80%", margin: "40px auto", textAlign: "justify" }}>
+      <Box sx={{ width: "80%", margin: "40px auto"}}>
         <Typography variant="body1">
           Entrez dans un univers parallèle où chaque mouvement, chaque action
           compte. Dark Hypercube Experience est bien plus qu’un simple escape
@@ -113,7 +113,7 @@ export default function EscapeGames() {
        <Features features={features} />
 
 
-      <Box sx={{ width: "80%", margin: "40px auto", textAlign: "justify" }}>
+      <Box sx={{ width: "80%", margin: "40px auto" }}>
         <Typography variant="body1">
           Passionnée par l’univers du jeu interactif et la narration à travers
           des environnements captivants, j’ai dédié plusieurs années à la

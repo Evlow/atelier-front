@@ -18,49 +18,51 @@ const theme = createTheme({
       color: "#CFC5C3",
       letterSpacing: "0.03rem",
       textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-      fontSize: "6rem", // Augmenté pour être plus grand que h2
-      "@media (max-width:1200px)": { fontSize: "5rem" }, 
-      "@media (max-width:900px)": { fontSize: "4rem" }, 
+      fontSize: "5.5rem", // Un peu plus raisonnable que 6rem
+      "@media (max-width:1200px)": { fontSize: "4.5rem" }, 
+      "@media (max-width:900px)": { fontSize: "3.8rem" }, 
       "@media (max-width:600px)": { fontSize: "2.5rem" }, 
     },
-    
+  
     h2: {
       fontFamily: "Lovers",
       fontWeight: "lighter",
       color: "#CFC5C3",
       letterSpacing: "0.03rem",
       textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-      fontSize: "4.5rem", // Légèrement réduit pour éviter la confusion avec h1
-      "@media (max-width:1200px)": { fontSize: "4rem" }, 
-      "@media (max-width:900px)": { fontSize: "4rem" }, 
-      "@media (max-width:600px)": { fontSize: "3.8rem" }, 
+      fontSize: "4.2rem",
+      "@media (max-width:1200px)": { fontSize: "3.8rem" }, 
+      "@media (max-width:900px)": { fontSize: "3.5rem" }, 
+      "@media (max-width:600px)": { fontSize: "3rem" }, 
     },
-    
+  
     h3: {
       fontFamily: "Lovers",
       fontWeight: "lighter",
       color: "#CFC5C3",
       letterSpacing: "0.03rem",
       textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-      fontSize: "3rem", 
+      fontSize: "3rem",
       "@media (max-width:1200px)": { fontSize: "2.8rem" }, 
-      "@media (max-width:900px)": { fontSize: "2.8rem" }, 
-      "@media (max-width:600px)": { fontSize: "2.8rem" }, 
+      "@media (max-width:900px)": { fontSize: "2.5rem" }, 
+      "@media (max-width:600px)": { fontSize: "2.2rem" }, 
     },
-    
+  
     h4: {
       fontFamily: "Lovers",
       fontWeight: "lighter",
       color: "#CFC5C3",
       letterSpacing: "0.03rem",
       textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-      fontSize: "2.5rem",
+      fontSize: "2.4rem",
+      "@media (max-width:900px)": { fontSize: "2.2rem" }, 
+      "@media (max-width:600px)": { fontSize: "2rem" }, 
     },
-    
+  
     body1: {
-      lineHeight: "1.5",
-      fontSize: "1.3rem",
-      fontFamily: "Alice",
+      lineHeight: "1.6", // Meilleur espacement pour la lisibilité
+      fontSize: "1.2rem", // Légèrement plus grand (19.2px) pour plus de confort
+      fontFamily: "Gowun",
       color: "#CFC5C3",
       fontWeight: "lighter",
       letterSpacing: "0.02rem",
@@ -68,10 +70,8 @@ const theme = createTheme({
       maxWidth: "100%",
       textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
     },
-
-  },
-  
-});
+  }
+  });
 
 function App() {
   return (

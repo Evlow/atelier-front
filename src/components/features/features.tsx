@@ -2,26 +2,36 @@ import { Box, Card, CardContent, Typography } from "@mui/material";
 import { ReactNode } from "react";
 
 interface Feature {
-  icon: ReactNode;
+  icon?: ReactNode;
   title: string;
   description: string;
 }
 
 interface FeaturesProps {
   features: Feature[];
+  flex?: string;
+  maxWidth?: string;
 }
 
-export default function Features({ features }: FeaturesProps) {
+export default function Features({ features, flex="1 1 250px", maxWidth="250px" }: FeaturesProps) {
   return (
-    <Box sx={{ margin: "60px auto", display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 3 }}>
+    <Box
+      sx={{
+        margin: "60px auto",
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        gap: 2,
+      }}
+    >
       {features.map((feature, index) => (
         <Box
           key={index}
           sx={{
             display: "flex",
             justifyContent: "center",
-            flex: "1 1 250px",
-            maxWidth: "250px",
+            flex: flex,
+            maxWidth: maxWidth,
             minWidth: "240px",
           }}
         >
@@ -33,10 +43,9 @@ export default function Features({ features }: FeaturesProps) {
               height: "auto",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "flex-start",
               alignItems: "center",
               background: "#E7E2E1",
-              paddingY: 2,
+              paddingY: 1,
               transition: "transform 0.3s ease-in-out",
               "&:hover": { transform: "scale(1.05)" },
             }}
@@ -46,21 +55,27 @@ export default function Features({ features }: FeaturesProps) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "flex-start",
                 p: 1.25,
                 height: "auto",
               }}
             >
-              <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", mb: 2 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
                 {feature.icon}
-                <Typography variant="h4" sx={{ marginTop: 1, color: "black" }}>
+                <Typography variant="h4" sx={{ marginY: 1, color: "black" }}>
                   {feature.title}
                 </Typography>
               </Box>
 
-              <Typography variant="body1" sx={{ textAlign: "center", color: "black" }}>
-                {feature.description}
-              </Typography>
+        <div
+          style={{ textAlign: "center", color: "black", marginTop: "10px" }}
+          dangerouslySetInnerHTML={{ __html: feature.description }}
+        />
             </CardContent>
           </Card>
         </Box>

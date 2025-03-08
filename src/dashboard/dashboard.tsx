@@ -166,7 +166,7 @@ export default function Dashboard() {
           textAlign="center"
           fontSize="1.8rem"
           padding="30px"
-          fontFamily="Alice"
+          fontFamily="Gowun"
         >
           {error ? (
             <Typography color="error" textAlign="center">
@@ -284,7 +284,7 @@ export default function Dashboard() {
                       border: "1px solid #640a02",
                       color: "black",
                       margin: "5px",
-                      fontFamily: "Alice",
+                      fontFamily: "Gowun",
                       textTransform: "none",
                     }}
                   >
@@ -299,7 +299,7 @@ export default function Dashboard() {
                       border: "1px solid #640a02",
                       color: "black",
                       margin: "5px",
-                      fontFamily: "Alice",
+                      fontFamily: "Gowun",
                       textTransform: "none",
                     }}
                   >

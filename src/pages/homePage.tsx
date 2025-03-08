@@ -68,121 +68,116 @@ export default function HomePage() {
 
   return (
     <div>
-<Box
-  sx={{
-    position: "relative", // Positionnement relatif pour le conteneur
-    width: "100%", // Largeur du conteneur à 100%
-
-    height: { xs: "auto", sm: "300px", md: "400px", lg: "800px" }, // Hauteur dynamique en fonction de l'écran
-    display: "flex", // Utilisation de Flexbox pour la disposition
-    flexDirection: { xs: "column", sm: "row" }, // Sur mobile (xs), l'image et le texte sont empilés, sur desktop (sm et plus), l'image est à gauche et le texte à droite
-    justifyContent: "center", // Centrer le contenu
-    alignItems: "center", // Alignement des éléments
-  }}
->
-  {/* Partie image */}
-  <Box
-    component="img"
-    srcSet={`${atelier}?w=1000&h=500&fit=crop 1000w, ${atelier}?w=600&h=300&fit=crop 600w`}
-    sizes="(max-width: 600px) 600px, 1000px"
-    alt="image bannière atelier d'onirium"
-    sx={{
-      width: "100%", // L'image prend toute la largeur
-      height: { xs: "auto", sm: "100%" }, // Hauteur ajustée pour mobile et desktop
-      objectFit: "cover", // L'image couvre l'espace sans déformation
-      position: { xs: "relative", sm: "absolute" }, // Sur mobile, on utilise "relative" pour que l'image reste dans le flux de la page
-      top: { xs: "0", sm: "0" }, // Position verticale ajustée pour chaque taille d'écran
-      left: { xs: "0", sm: "0" }, // Position horizontale ajustée
-    }}
-  />
-
-  {/* Partie texte */}
-  <Box
-    sx={{
-      position: { xs: "relative", sm: "absolute" }, // Sur mobile, texte reste dans le flux normal, sinon il est absolu
-      top: { xs: "auto", sm: "50%" }, // Sur mobile, on n'utilise pas de "top" pour le texte, sur desktop, centré verticalement
-      left: { xs: "0", sm: "20px" }, // Espace à gauche pour le texte sur desktop
-      transform: { xs: "none", sm: "translateY(-50%)" }, // Centrer verticalement sur desktop
-      color: "white", // Couleur du texte
-      zIndex: 1, // Texte au-dessus de l'image
-      padding: { xs: "20px", sm: "30px" }, // Espacement dynamique
-    }}
-  >
-    <Typography
-      variant="h2"
-      sx={{
-                textAlign: { xs: "center", sm: "center", md: "justify" },
-
-        textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
-        width: { xs: "100%", sm: "100%" }, // Largeur du texte ajustée
-        paddingY: { xs: "5px", sm: "10px", md: "30px" },
-        fontSize: { xs: "3rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
-      }}
-    >
-      Votre imagination n’a pas de limites… <br />Mes créations non plus !
-    </Typography>
-
-    <Typography
-      variant="body1"
-      sx={{
-        width: { xs: "100%", sm: "45%", md:"45%" }, // Largeur du texte ajustée
-marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
-        textAlign: "justify", // Justification du texte
-      }}
-    >
-      Vous êtes une entreprise à la recherche de créations
-      personnalisées pour vos événements ou vos bureaux ? <br />
-      Vous êtes un particulier et souhaitez transformer votre intérieur
-      avec des objets uniques ? <br />
-      Vous êtes un organisateur d'événements et avez besoin d'un décor
-      immersif et original ? <br />
-      <br />
-      Vous êtes au bon endroit !
-    </Typography>
-
-    {/* Bouton */}
-    <Box>
-      <Button
-        component={Link}
-        to="/me-contacter"
+      <Box
         sx={{
-          width: { xs: "60%", sm: "40%", md: "30%" }, // Taille du bouton ajustée pour mobile et bureau
-          height: 50,
-          fontSize: { xs: "16px", sm: "1.5rem", md: "1.6rem" },
-          backgroundColor: "#e7e2e1",
-          borderColor: "#640a02",
-          color: "#640a02",
-          fontFamily: "Alice",
-          border: "1px solid",
-          margin: "5px",
-          textTransform: "none",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          marginTop: "30px", // Espacement entre le texte et le bouton
-          transition: "all 0.3s ease",
-          "&:hover": {
-            transform: "scale(1.1)",
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
-            cursor: "pointer",
-          },
+          position: "relative", // Positionnement relatif pour le conteneur
+          width: "100%", // Largeur du conteneur à 100%
+
+          height: { xs: "auto", sm: "300px", md: "400px", lg: "800px" }, // Hauteur dynamique en fonction de l'écran
+          display: "flex", // Utilisation de Flexbox pour la disposition
+          flexDirection: { xs: "column", sm: "row" }, // Sur mobile (xs), l'image et le texte sont empilés, sur desktop (sm et plus), l'image est à gauche et le texte à droite
+          justifyContent: "center", // Centrer le contenu
+          alignItems: "center", // Alignement des éléments
         }}
       >
-        Me contacter
-        <span style={{ color: "#640a02", marginLeft: "5px" }}>&gt;</span>
-      </Button>
-    </Box>
-  </Box>
-</Box>
+        {/* Partie image */}
+        <Box
+          component="img"
+          srcSet={`${atelier}?w=1000&h=500&fit=crop 1000w, ${atelier}?w=600&h=300&fit=crop 600w`}
+          sizes="(max-width: 600px) 600px, 1000px"
+          alt="image bannière atelier d'onirium"
+          sx={{
+            width: "100%", // L'image prend toute la largeur
+            height: { xs: "auto", sm: "100%" }, // Hauteur ajustée pour mobile et desktop
+            objectFit: "cover", // L'image couvre l'espace sans déformation
+            position: { xs: "relative", sm: "absolute" }, // Sur mobile, on utilise "relative" pour que l'image reste dans le flux de la page
+            top: { xs: "0", sm: "0" }, // Position verticale ajustée pour chaque taille d'écran
+            left: { xs: "0", sm: "0" }, // Position horizontale ajustée
+          }}
+        />
 
+        {/* Partie texte */}
+        <Box
+          sx={{
+            margin: "0 auto",
 
+            position: { xs: "relative", sm: "absolute" }, // Sur mobile, texte reste dans le flux normal, sinon il est absolu
+            top: { xs: "auto", sm: "50%" }, // Sur mobile, on n'utilise pas de "top" pour le texte, sur desktop, centré verticalement
+            left: { xs: "0", sm: "20px" }, // Espace à gauche pour le texte sur desktop
+            transform: { xs: "none", sm: "translateY(-50%)" }, // Centrer verticalement sur desktop
+            zIndex: 1, // Texte au-dessus de l'image
+            padding: { xs: 0, sm: "30px" }, // Espacement dynamique
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              margin: "0 auto",
 
+              textAlign: "left",
+              textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
+              width: { xs: "80%", sm: "100%" }, // Largeur du texte ajustée
+              paddingY: { xs: 0, sm: "10px", md: "30px" },
+              fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
+            }}
+          >
+            Votre imagination n’a pas de limites… <br />
+            Mes créations non plus !
+          </Typography>
+
+          <Typography
+            variant="body1"
+            sx={{
+              margin: { xs: "0 auto", sm: "0 auto", md: "0" },
+              width: { xs: "80%", sm: "45%", md: "45%" }, // Largeur du texte ajustée
+              marginBottom: { xs: "20px", sm: "40px", md: "40px" }, 
+            }}
+          >
+            Vous êtes une entreprise à la recherche de créations personnalisées
+            pour vos événements ou vos bureaux ? <br />
+            <br />
+            Vous êtes un particulier et souhaitez transformer votre intérieur
+            avec des objets uniques ? <br />
+            <br />
+            Vous êtes un organisateur d'événements et vous avez besoin d'un
+            décor immersif et original ? <br />
+            <br />
+            Vous êtes au bon endroit !
+          </Typography>
+
+          {/* Bouton */}
+          <Box>
+            <Button
+              component={Link}
+              to="/me-contacter"
+              sx={{
+                width: { xs: "60%", sm: "40%", md: "25%" }, // Taille du bouton ajustée pour mobile et bureau
+                height: 50,
+                fontSize: { xs: "1.2rem", sm: "1.3rem", md: "1.4rem" },
+                backgroundColor: "#e7e2e1",
+                color: "#640a02",
+                fontFamily: "Gowun",
+                textTransform: "none",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.1)",
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+                  cursor: "pointer",
+                },
+              }}
+            >
+              Me contacter
+              <span style={{ color: "#640a02", marginLeft: "5px" }}>&gt;</span>
+            </Button>
+          </Box>
+        </Box>
+      </Box>
 
       {/* Section principale */}
       <Box component="main" sx={{ width: "80%", margin: "0 auto" }}>
-        {/* Section Appel à l'Action */}
-  
-
         {/* Section Qui suis-je */}
         <Typography
           variant="h2"
@@ -195,25 +190,9 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
           Qui suis-je ?
         </Typography>
 
-        <Stack
-          component="article"
-          direction={{ xs: "column", md: "row" }}
-          spacing={4}
-          alignItems="center"
-          justifyContent="space-between"
-        >
-          {/* Image à gauche sur desktop, en haut sur mobile */}
-          <Box
-            sx={{
-              flex: 1,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          ></Box>
-
+        <Stack component="article" direction={{ xs: "column", md: "row" }}>
           {/* Texte à droite sur desktop, en bas sur mobile */}
-          <Typography variant="body1" sx={{ textAlign: "justify" }}>
+          <Typography variant="body1">
             Depuis toujours, j'ai cette passion de créer, qu’il s’agisse
             d’objets, de décors ou d’expériences. La création a toujours été
             pour moi un moyen d’exprimer mon imagination et d’explorer de
@@ -223,7 +202,7 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
             Aujourd’hui, mon objectif est de vous faire <strong>rêver</strong>,
             d’explorer de nouveaux horizons et de redéfinir les frontières de la
             créativité et de l’innovation. Mon approche repose sur un mélange d'
-            <strong>artisanat traditionnel</strong> et de{" "}
+            <strong>artisanat traditionnel</strong> et de
             <strong>technologies modernes</strong>, afin de créer des
             expériences qui marquent les esprits.
             <br />
@@ -282,9 +261,10 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
             variant="h2"
             sx={{
               color: "black",
+              fontSize : { xs: "3rem", sm: "3.5rem", md: "5rem" },
             }}
           >
-            Ne manquez rien
+            Ne manquez rien !
           </Typography>
 
           <Typography
@@ -343,7 +323,7 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
         <Typography
           variant="h3"
           sx={{
-            fontFamily: "Alice",
+            fontFamily: "Gowun",
             textAlign: "center",
             fontSize: { xs: "1.5rem", md: "2rem" },
           }}
@@ -394,7 +374,7 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
               Animatroniques
             </Typography>
 
-            <Typography variant="body1" sx={{ textAlign: "justify" }}>
+            <Typography variant="body1">
               Les animatroniques sont des créations robotiques qui reproduisent
               des mouvements réalistes, souvent utilisés pour simuler des
               animaux, des peluches, des personnages, ou même des créatures
@@ -424,10 +404,8 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
                   height: 50, // Augmenter la hauteur du bouton
                   fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
                   backgroundColor: "#e7e2e1", // Fond beige clair
-                  borderColor: "#640a02", // Bordure bordeaux
                   color: "#640a02", // Texte bordeaux
-                  fontFamily: "Alice", // Police Alice
-                  border: "1px solid", // Ajout d'une bordure
+                  fontFamily: "Gowun", // Police Alice
                   margin: "5px",
                   textTransform: "none",
                   display: "flex",
@@ -478,13 +456,7 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
               Escape Games
             </Typography>
 
-            <Typography
-              component="section"
-              variant="body1"
-              sx={{
-                textAlign: "justify",
-              }}
-            >
+            <Typography component="section" variant="body1">
               Dark Hypercube Experience est un projet nomade qui représente une
               avancée majeure dans le domaine de l’immersion. <br />
               Le concept repose sur un mécanisme central novateur, ainsi que de
@@ -520,10 +492,8 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
                   height: 50, // Augmenter la hauteur du bouton
                   fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
                   backgroundColor: "#e7e2e1", // Fond beige clair
-                  borderColor: "#640a02", // Bordure bordeaux
                   color: "#640a02", // Texte bordeaux
-                  fontFamily: "Alice", // Police Alice
-                  border: "1px solid", // Ajout d'une bordure
+                  fontFamily: "Gowun", // Police Alice
                   margin: "5px",
                   textTransform: "none",
                   display: "flex",
@@ -595,7 +565,7 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
           >
             <img
               src={creation}
-              alt="Créations diverses"
+              alt="Hologrammes et Mapping"
               style={{
                 maxWidth: "100%",
                 height: "auto",
@@ -619,7 +589,7 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
               Hologrammes & Mappings
             </Typography>
 
-            <Typography variant="body1" sx={{ textAlign: "justify" }}>
+            <Typography variant="body1">
               Les hologrammes et les technologies de mapping révolutionnent la
               perception de l’espace et de l’image. <br />
               Grâce à ces solutions innovantes, chaque environnement peut se
@@ -651,10 +621,8 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
                   height: 50, // Augmenter la hauteur du bouton
                   fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
                   backgroundColor: "#e7e2e1", // Fond beige clair
-                  borderColor: "#640a02", // Bordure bordeaux
                   color: "#640a02", // Texte bordeaux
-                  fontFamily: "Alice", // Police Alice
-                  border: "1px solid", // Ajout d'une bordure
+                  fontFamily: "Gowun", // Police Alice
                   margin: "5px",
                   textTransform: "none",
                   display: "flex",
@@ -701,20 +669,14 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
                 textAlign: "center",
                 marginBottom: "20px",
                 marginTop: "20px",
-                textShadow: "2px 2px 6px rgba(255, 255, 255, 0.6)",
+                textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
               }}
             >
               Création diverses
             </Typography>
 
             {/* Texte galerie exposition */}
-            <Typography
-              component="section"
-              variant="body1"
-              sx={{
-                textAlign: "justify",
-              }}
-            >
+            <Typography component="section" variant="body1">
               Mon univers est atypique, influencé par le fantastique, et j'aime
               repousser les limites de ce qui est possible. <br />
               Chaque création, qu'il s'agisse de décors grandeur nature,
@@ -743,10 +705,8 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
                   height: 50, // Augmenter la hauteur du bouton
                   fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
                   backgroundColor: "#e7e2e1", // Fond beige clair
-                  borderColor: "#640a02", // Bordure bordeaux
                   color: "#640a02", // Texte bordeaux
-                  fontFamily: "Alice", // Police Alice
-                  border: "1px solid", // Ajout d'une bordure
+                  fontFamily: "Gowun", // Police Alice
                   margin: "5px",
                   textTransform: "none",
                   display: "flex",
@@ -875,10 +835,8 @@ marginY: { xs: "20px", sm: "40px", md: "60px" }, // Espacement dynamique
                 height: 50, // Augmenter la hauteur du bouton
                 fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
                 backgroundColor: "#e7e2e1", // Fond beige clair
-                borderColor: "#640a02", // Bordure bordeaux
                 color: "#640a02", // Texte bordeaux
-                fontFamily: "Alice", // Police Alice
-                border: "1px solid", // Ajout d'une bordure
+                fontFamily: "Gowun", // Police Alice
                 margin: "5px",
                 textTransform: "none",
                 display: "flex",

@@ -376,7 +376,7 @@ export default function Contact() {
                   backgroundColor: "#E7E2E1", // Fond clair
                   borderColor: "#640a02", // Bordure bordeaux
                   color: "#640a02", // Texte bordeaux
-                  fontFamily: "Alice", // Police "Alice"
+                  fontFamily: "Gowun", // Police "Gowun"
                   border: "1px solid", // Bordure
                 }}
               >

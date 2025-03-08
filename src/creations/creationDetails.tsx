@@ -150,7 +150,7 @@ export default function CreationDetails() {
           sx={{
             flex: 1,
             paddingLeft: { xs: 0, md: 4 },
-            textAlign: "justify",
+            textAlign: "left",
           }}
         >
           <Typography
@@ -187,7 +187,7 @@ export default function CreationDetails() {
                 width: { xs: "100%", sm: "20%" },
                 backgroundColor: "#E7E2E1",
                 color: "black",
-                fontFamily: "Alice",
+                fontFamily: "Gowun",
                 fontSize: "1.2rem",
                 textTransform: "none",
                 display: "flex",

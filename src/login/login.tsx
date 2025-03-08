@@ -114,7 +114,7 @@ export default function Login() {
               backgroundColor: "#640a02",
               borderColor: "#e7e2e1",
               color: "#e7e2e1",
-              fontFamily: "Alice",
+              fontFamily: "Gowun",
             }}
           >
             Se connecter

@@ -2,12 +2,41 @@ import { useEffect, useState } from "react";
 import anima from "../assets/anima.png";
 import arduino from "../assets/arduino.jpg";
 import video from "../assets/videos/video.mp4";
-import { Box, Typography, Stack, Card, CardContent } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import { Creation } from "../models/creation";
 import CreationList from "../creations/creationList";
+import Features from "../components/features/features";
 
 export default function Animatronics() {
   const [creations, setCreations] = useState<Creation[]>([]);
+  // Définition des données des cartes
+  const feature = [
+    {
+      title: "Impression 3D et structure",
+      description:
+        "Les structures des animatroniques sont imprimées en 3D (ABS ou matériaux équivalents), permettant une personnalisation totale tout en réduisant le poids.<br />Cette méthode préserve également la solidité et la fonctionnalité des créations.",
+    },
+    {
+      title: "Moteurs et Mécanisme",
+      description:
+        "Des moteurs de haute qualité (servomoteurs et moteurs brushless) sont utilisés pour contrôler précisément les mouvements des animatroniques.<br /> Robustes et fiables, ces moteurs garantissent des mouvements réalistes et durables.",
+    },
+    {
+      title: "Programmation et contrôle",
+      description:
+        "Grâce à la technologie Arduino, chaque animatronique peut être programmée pour exécuter des scénarios spécifiques.<br /> Un panneau de contrôle à distance permet à un opérateur de piloter les mouvements des animatroniques en temps réel.",
+    },
+    {
+      title: "Personnalisation sonore",
+      description:
+        "La personnalisation des animatroniques inclut des modules sonores, permettant de diffuser des dialogues ou des effets sonores.<br /> Ces éléments sont entièrement adaptables en fonction des besoins du projet.",
+    },
+    {
+      title: "Robustesse et maintenance ",
+      description:
+        "Conçues pour être à la fois robustes et faciles à entretenir, les animatroniques bénéficient d'une conception modulaire, permettant un remplacement rapide des pièces et garantissant ainsi une longue durée de vie.",
+    },
+  ];
 
   useEffect(() => {
     const categoryId = 1;
@@ -45,16 +74,15 @@ export default function Animatronics() {
             marginBottom: "10px",
             justifyContent: "space-evently",
             alignItems: "center", // Centre verticalement
-
           }}
         >
-          <Box component="section" flex={1} >
+          <Box component="section" flex={1}>
             <Typography
               component="section"
               variant="body1"
               sx={{
                 width: "50%",
-                textAlign: "justify",
+                textAlign: "left",
               }}
             >
               Les animatroniques que je conçois se distinguent par leur capacité
@@ -84,317 +112,6 @@ export default function Animatronics() {
           </Box>
         </Stack>
       </Box>
-
-      <Box
-  sx={{
-    display: "flex",
-    justifyContent: "center",
-    flexWrap: "wrap",
-    gap: 4, // Espacement entre les cartes
-    padding: 2,
-  }}
->
-  {/* Carte 1 */}
-  <Box
-    sx={{
-      display: "flex",
-      justifyContent: "center",
-      flex: "1 1 250px",
-      maxWidth: "250px",
-      minWidth: "240px",
-    }}
-  >
-    <Card
-      sx={{
-        boxSizing: "border-box",
-        textAlign: "center",
-        width: "100%",
-        height: "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        background: "#E7E2E1",
-        paddingY: 2,
-        transition: "transform 0.3s ease-in-out",
-        "&:hover": { transform: "scale(1.05)" },
-      }}
-    >
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          p: 1.25,
-          height: "auto",
-        }}
-      >
-        <Typography variant="h4" sx={{ marginTop: 1, color: "black" }}>
-          1. Impression 3D et Structure
-        </Typography>
-        <Typography variant="body1" sx={{ textAlign: "center", color: "black" }}>
-          Les structures de mes animatroniques sont imprimées en 3D (principalement en ABS ou matériaux équivalents). Cela permet une personnalisation totale et un poids réduit tout en préservant la solidité et la fonctionnalité des créations.
-        </Typography>
-      </CardContent>
-    </Card>
-  </Box>
-
-  {/* Carte 2 */}
-  <Box
-    sx={{
-      display: "flex",
-      justifyContent: "center",
-      flex: "1 1 250px",
-      maxWidth: "250px",
-      minWidth: "240px",
-    }}
-  >
-    <Card
-      sx={{
-        boxSizing: "border-box",
-        textAlign: "center",
-        width: "100%",
-        height: "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        background: "#E7E2E1",
-        paddingY: 2,
-        transition: "transform 0.3s ease-in-out",
-        "&:hover": { transform: "scale(1.05)" },
-      }}
-    >
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          p: 1.25,
-          height: "auto",
-        }}
-      >
-        <Typography variant="h4" sx={{ marginTop: 1, color: "black" }}>
-          2. Moteurs et Mécanisme
-        </Typography>
-        <Typography variant="body1" sx={{ textAlign: "center", color: "black" }}>
-          L’utilisation de moteurs de haute qualité (servomoteurs et moteurs brushless) permet de contrôler précisément les mouvements des animatroniques, qu’il s’agisse de membres, de têtes ou de visages. Ces moteurs sont choisis pour leur robustesse et leur fiabilité afin de garantir des mouvements réalistes.
-        </Typography>
-      </CardContent>
-    </Card>
-  </Box>
-
-  {/* Carte 3 */}
-  <Box
-    sx={{
-      display: "flex",
-      justifyContent: "center",
-      flex: "1 1 250px",
-      maxWidth: "250px",
-      minWidth: "240px",
-    }}
-  >
-    <Card
-      sx={{
-        boxSizing: "border-box",
-        textAlign: "center",
-        width: "100%",
-        height: "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        background: "#E7E2E1",
-        paddingY: 2,
-        transition: "transform 0.3s ease-in-out",
-        "&:hover": { transform: "scale(1.05)" },
-      }}
-    >
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          p: 1.25,
-          height: "auto",
-        }}
-      >
-        <Typography variant="h4" sx={{ marginTop: 1, color: "black" }}>
-          3. Programmation et Contrôle à Distance
-        </Typography>
-        <Typography variant="body1" sx={{ textAlign: "center", color: "black" }}>
-          Grâce à la technologie Arduino, chaque animatronique peut être programmée pour exécuter des scénarios précis. En outre, un panneau de contrôle à distance permet à un opérateur d'animer les créatures en temps réel.
-        </Typography>
-      </CardContent>
-    </Card>
-  </Box>
-
-  {/* Carte 4 */}
-  <Box
-    sx={{
-      display: "flex",
-      justifyContent: "center",
-      flex: "1 1 250px",
-      maxWidth: "250px",
-      minWidth: "240px",
-    }}
-  >
-    <Card
-      sx={{
-        boxSizing: "border-box",
-        textAlign: "center",
-        width: "100%",
-        height: "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        background: "#E7E2E1",
-        paddingY: 2,
-        transition: "transform 0.3s ease-in-out",
-        "&:hover": { transform: "scale(1.05)" },
-      }}
-    >
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          p: 1.25,
-          height: "auto",
-        }}
-      >
-        <Typography variant="h4" sx={{ marginTop: 1, color: "black" }}>
-          4. Personnalisation Sonore
-        </Typography>
-        <Typography variant="body1" sx={{ textAlign: "center", color: "black" }}>
-          Les animatroniques peuvent être équipées de modules sonores pour ajouter des dialogues ou des sons enrichissant l’expérience. Ces éléments sont entièrement personnalisables selon les besoins spécifiques du projet.
-        </Typography>
-      </CardContent>
-    </Card>
-  </Box>
-
-  {/* Carte 5 */}
-  <Box
-    sx={{
-      display: "flex",
-      justifyContent: "center",
-      flex: "1 1 250px",
-      maxWidth: "250px",
-      minWidth: "240px",
-    }}
-  >
-    <Card
-      sx={{
-        boxSizing: "border-box",
-        textAlign: "center",
-        width: "100%",
-        height: "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        background: "#E7E2E1",
-        paddingY: 2,
-        transition: "transform 0.3s ease-in-out",
-        "&:hover": { transform: "scale(1.05)" },
-      }}
-    >
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          p: 1.25,
-          height: "auto",
-        }}
-      >
-        <Typography variant="h4" sx={{ marginTop: 1, color: "black" }}>
-          5. Robustesse et Maintenance Facile
-        </Typography>
-        <Typography variant="body1" sx={{ textAlign: "center", color: "black" }}>
-          Les animatroniques sont conçues pour être robustes tout en étant faciles à réparer. Leur conception modulaire permet de remplacer rapidement les pièces et d'assurer une longévité élevée, même dans des environnements exigeants.
-        </Typography>
-      </CardContent>
-    </Card>
-  </Box>
-
-  {/* Carte 6 */}
-  <Box
-    sx={{
-      display: "flex",
-      justifyContent: "center",
-      flex: "1 1 250px",
-      maxWidth: "250px",
-      minWidth: "240px",
-    }}
-  >
-    <Card
-      sx={{
-        boxSizing: "border-box",
-        textAlign: "center",
-        width: "100%",
-        height: "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        background: "#E7E2E1",
-        paddingY: 2,
-        transition: "transform 0.3s ease-in-out",
-        "&:hover": { transform: "scale(1.05)" },
-      }}
-    >
-      <CardContent
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          p: 1.25,
-          height: "auto",
-        }}
-      >
-        <Typography variant="h4" sx={{ marginTop: 1, color: "black" }}>
-          6. Applications Diversifiées
-        </Typography>
-        <Typography variant="body1" sx={{ textAlign: "center", color: "black" }}>
-          Les animatroniques trouvent leur place dans une multitude de secteurs : Événements et concerts, Escape games, Parcs à thème et films, Installations visuelles dynamiques.
-        </Typography>
-      </CardContent>
-    </Card>
-  </Box>
-</Box>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       <Box width="80%" margin="auto">
         <Typography
@@ -438,7 +155,7 @@ export default function Animatronics() {
               component="section"
               variant="body1"
               sx={{
-                textAlign: "justify",
+                textAlign: "left",
               }}
             >
               Autre point important de mes animatroniques : leur capacité à être
@@ -490,7 +207,7 @@ export default function Animatronics() {
               component="section"
               variant="body1"
               sx={{
-                textAlign: "justify",
+                textAlign: "left",
                 alignContent: "center", // Centre verticalement
               }}
             >
@@ -541,6 +258,9 @@ export default function Animatronics() {
           </Box>
         </Stack>
       </Box>
+
+      <Features features={feature} flex="1 1 320px" maxWidth="320px" />
+
       <Box my={4} width="80%" margin="auto">
         <Typography
           variant="h2"
@@ -551,7 +271,7 @@ export default function Animatronics() {
         >
           Conclusion
         </Typography>
-        <Typography variant="body1" sx={{ textAlign: "justify" }}>
+        <Typography variant="body1">
           En résumé, mes animatroniques sont bien plus que de simples objets
           mécaniques. Ce sont des créations vivantes qui allient technologie,
           créativité et innovation. <br /> Je conçois et crée des animatroniques
