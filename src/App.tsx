@@ -60,18 +60,22 @@ const theme = createTheme({
     },
   
     body1: {
-      lineHeight: "1.6", // Meilleur espacement pour la lisibilité
+      lineHeight: 1.6, // Meilleur espacement pour la lisibilité
       fontSize: "1.2rem", // Légèrement plus grand (19.2px) pour plus de confort
       fontFamily: "Gowun",
       color: "#CFC5C3",
       fontWeight: "lighter",
       letterSpacing: "0.02rem",
-      wordSpacing: "0.03rem", 
+      wordSpacing: "0.03rem",
       maxWidth: "100%",
       textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+     " @media (max-width: 768px)": { fontSize: "1rem", lineHeight: 1.5,},
     },
+    
   }
-  });
+    },
+
+);
 
 function App() {
   return (

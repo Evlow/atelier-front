@@ -117,7 +117,7 @@ export default function HomePage() {
               textAlign: "left",
               textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
               width: { xs: "80%", sm: "100%" }, // Largeur du texte ajustée
-              paddingY: { xs: 0, sm: "10px", md: "30px" },
+              paddingY: "30px",
               fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
             }}
           >
@@ -151,6 +151,7 @@ export default function HomePage() {
               component={Link}
               to="/me-contacter"
               sx={{
+                margin:  { xs: "0 auto", sm: 0, md: 0 }, 
                 width: { xs: "60%", sm: "40%", md: "25%" }, // Taille du bouton ajustée pour mobile et bureau
                 height: 50,
                 fontSize: { xs: "1.2rem", sm: "1.3rem", md: "1.4rem" },
@@ -273,6 +274,7 @@ export default function HomePage() {
               color: "black",
               mb: "30px",
               textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
+              padding: '10px',
             }}
           >
             Suivez L'Atelier d'Onirium sur les réseaux sociaux pour plonger dans
