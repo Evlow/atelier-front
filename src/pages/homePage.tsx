@@ -114,23 +114,38 @@ export default function HomePage() {
             sx={{
               margin: "0 auto",
 
-              textAlign: "left",
+              textAlign: "left" ,  
               textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
-              width: { xs: "80%", sm: "100%" }, // Largeur du texte ajustée
-              paddingY: "30px",
-              fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
+              width: "100%", // Largeur du texte ajustée
+              paddingTop: "30px",
+              paddingX: { xs: "20px", sm: 0 }, // Espacement horizontal ajusté
+
+              fontSize: { xs: "3.5rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
             }}
           >
             Votre imagination n’a pas de limites… <br />
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              margin: "0 auto",
+              textAlign: "left" ,  
+              textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
+              width: "100%", // Largeur du texte ajustée
+              fontSize: { xs: "3.5rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
+              paddingBottom: "30px",
+              paddingX: { xs: "20px", sm: 0 }, // Espacement horizontal ajusté
+
+            }}
+          >
             Mes créations non plus !
           </Typography>
-
           <Typography
             variant="body1"
             sx={{
               margin: { xs: "0 auto", sm: "0 auto", md: "0" },
               width: { xs: "80%", sm: "45%", md: "45%" }, // Largeur du texte ajustée
-              marginBottom: { xs: "20px", sm: "40px", md: "40px" }, 
+              marginBottom: { xs: "40px", sm: "40px", md: "40px" }, 
             }}
           >
             Vous êtes une entreprise à la recherche de créations personnalisées
@@ -152,9 +167,11 @@ export default function HomePage() {
               to="/me-contacter"
               sx={{
                 margin:  { xs: "0 auto", sm: 0, md: 0 }, 
-                width: { xs: "60%", sm: "40%", md: "25%" }, // Taille du bouton ajustée pour mobile et bureau
+                marginY:  { xs: "20px", sm: 0, md: 0 }, 
+
+                width: { xs: "30%", sm: "40%", md: "25%" }, // Taille du bouton ajustée pour mobile et bureau
                 height: 50,
-                fontSize: { xs: "1.2rem", sm: "1.3rem", md: "1.4rem" },
+                fontSize: { xs: "16px", sm: "18px" }, // Augmenter la taille du texte sur mobile et bureau
                 backgroundColor: "#e7e2e1",
                 color: "#640a02",
                 fontFamily: "Gowun",
@@ -183,8 +200,8 @@ export default function HomePage() {
         <Typography
           variant="h2"
           sx={{
-            paddingY: { xs: "20px", sm: "30px", md: "40px" },
-            textAlign: "center",
+            paddingY: { xs: "30px", sm: "30px", md: "40px" },
+            textAlign: { xs: "left", sm: "center", md: "center" },
             textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
           }}
         >
