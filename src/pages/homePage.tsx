@@ -73,7 +73,7 @@ export default function HomePage() {
           position: "relative", // Positionnement relatif pour le conteneur
           width: "100%", // Largeur du conteneur à 100%
 
-          height: { xs: "auto", sm: "300px", md: "400px", lg: "800px" }, // Hauteur dynamique en fonction de l'écran
+          height: { xs: "auto", sm: "300px", md: "400px", lg: "700px" }, 
           display: "flex", // Utilisation de Flexbox pour la disposition
           flexDirection: { xs: "column", sm: "row" }, // Sur mobile (xs), l'image et le texte sont empilés, sur desktop (sm et plus), l'image est à gauche et le texte à droite
           justifyContent: "center", // Centrer le contenu
@@ -88,7 +88,7 @@ export default function HomePage() {
           alt="image bannière atelier d'onirium"
           sx={{
             width: "100%", // L'image prend toute la largeur
-            height: { xs: "auto", sm: "100%" }, // Hauteur ajustée pour mobile et desktop
+            // height: { xs: "auto", sm: "100%" },
             objectFit: "cover", // L'image couvre l'espace sans déformation
             position: { xs: "relative", sm: "absolute" }, // Sur mobile, on utilise "relative" pour que l'image reste dans le flux de la page
             top: { xs: "0", sm: "0" }, // Position verticale ajustée pour chaque taille d'écran
@@ -103,10 +103,9 @@ export default function HomePage() {
 
             position: { xs: "relative", sm: "absolute" }, // Sur mobile, texte reste dans le flux normal, sinon il est absolu
             top: { xs: "auto", sm: "50%" }, // Sur mobile, on n'utilise pas de "top" pour le texte, sur desktop, centré verticalement
-            left: { xs: "0", sm: "20px" }, // Espace à gauche pour le texte sur desktop
+            left: { xs: "0", sm: "50px" }, // Espace à gauche pour le texte sur desktop
             transform: { xs: "none", sm: "translateY(-50%)" }, // Centrer verticalement sur desktop
             zIndex: 1, // Texte au-dessus de l'image
-            padding: { xs: 0, sm: "30px" }, // Espacement dynamique
           }}
         >
           <Typography
@@ -117,10 +116,10 @@ export default function HomePage() {
               textAlign: "left" ,  
               textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
               width: "100%", // Largeur du texte ajustée
+              padding: { xs: 0, sm: "30px" }, // Espacement dynamique
               paddingTop: "30px",
               paddingX: { xs: "20px", sm: 0 }, // Espacement horizontal ajusté
-
-              fontSize: { xs: "3.5rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
+              fontSize: { xs: "3rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
             }}
           >
             Votre imagination n’a pas de limites… <br />
@@ -132,9 +131,10 @@ export default function HomePage() {
               textAlign: "left" ,  
               textShadow: "1px 1px 5px rgba(255, 255, 255, 0.6)",
               width: "100%", // Largeur du texte ajustée
-              fontSize: { xs: "3.5rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
-              paddingBottom: "30px",
+              fontSize: { xs: "3rem", sm: "3rem", md: "4rem" }, // Taille du texte ajustée
               paddingX: { xs: "20px", sm: 0 }, // Espacement horizontal ajusté
+              paddingBottom: "30px",
+
 
             }}
           >
@@ -145,7 +145,7 @@ export default function HomePage() {
             sx={{
               margin: { xs: "0 auto", sm: "0 auto", md: "0" },
               width: { xs: "80%", sm: "45%", md: "45%" }, // Largeur du texte ajustée
-              marginBottom: { xs: "40px", sm: "40px", md: "40px" }, 
+              marginBottom: { xs: "40px", sm: "40px", md: "20px" }, 
             }}
           >
             Vous êtes une entreprise à la recherche de créations personnalisées
@@ -291,7 +291,7 @@ export default function HomePage() {
               color: "black",
               mb: "30px",
               textShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)",
-              padding: '10px',
+              padding: '20px',
             }}
           >
             Suivez L'Atelier d'Onirium sur les réseaux sociaux pour plonger dans
