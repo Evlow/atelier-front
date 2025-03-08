@@ -1,0 +1,28 @@
+name: Deploy Image to GHCR
+
+on:
+  push:
+    branches:
+      - preprod
+
+jobs:
+      push-store-image:
+        runs-on: ubuntu-latest
+        permissions:
+          contents: read
+          packages: write
+        steps:
+          - name: 'Checkout GitHub Action'
+            uses: actions/checkout@main
+
+          - name: 'Login to GitHub Container Registry'
+            uses: docker/login-action@v1
+            with:
+              registry: ghcr.io
+              username: ${{github.actor}}
+              password: ${{secrets.GH_TOKEN}}
+
+          - name: 'Build Inventory Image'
+            run: |
+              docker build --tag ghcr.io/evlow/atelier-front:latest .
+              docker push ghcr.io/evlow/atelier-front:latest

@@ -37,7 +37,7 @@ export default function Login() {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/Account/Login/login', {
+      const response = await fetch('http://preprodback.karim-portfolio.xyz/api/Account/Login/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -114,7 +114,7 @@ export default function Login() {
               backgroundColor: "#640a02",
               borderColor: "#e7e2e1",
               color: "#e7e2e1",
-              fontFamily: "Alice",
+              fontFamily: "Gowun",
             }}
           >
             Se connecter
